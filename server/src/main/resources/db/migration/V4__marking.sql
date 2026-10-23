@@ -1,0 +1,3 @@
+-- V4：人工阅卷支持
+ALTER TABLE attempt_answer ADD COLUMN comment VARCHAR(500);
+ALTER TABLE attempt_answer ADD COLUMN manual BOOLEAN NOT NULL DEFAULT FALSE;

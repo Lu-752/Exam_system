@@ -1,0 +1,15 @@
+{
+  "name": "exam-sys",
+  "private": true,
+  "version": "0.1.0",
+  "description": "学生考试系统 · monorepo",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm -w apps/admin-web run dev",
+    "build": "npm -w apps/admin-web run build",
+    "preview": "npm -w apps/admin-web run preview"
+  }
+}

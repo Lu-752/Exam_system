@@ -1,0 +1,69 @@
+server:
+  port: 8080
+  shutdown: graceful
+
+spring:
+  application:
+    name: exam-server
+  profiles:
+    active: dev
+  autoconfigure:
+    # 本项目用 TokenStore + 自定义过滤器鉴权，不需要 Spring 默认的内存用户
+    exclude: org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+    default-property-inclusion: non_null
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+    banner: false
+    db-config:
+      id-type: auto
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+
+logging:
+  level:
+    com.exam: debug
+
+---
+# 本地开发：H2（PostgreSQL 兼容模式），零外部依赖
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: jdbc:h2:file:./data/exam;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;CASE_INSENSITIVE_IDENTIFIERS=TRUE;AUTO_SERVER=TRUE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+---
+# 生产/联调：PostgreSQL 16
+spring:
+  config:
+    activate:
+      on-profile: pg
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://127.0.0.1:5432/exam_sys}
+    driver-class-name: org.postgresql.Driver
+    username: ${DB_USER:exam}
+    password: ${DB_PASSWORD:exam}
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 4

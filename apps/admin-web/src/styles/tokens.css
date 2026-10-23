@@ -1,0 +1,135 @@
+:root {
+  --brand: #3d6ef5;
+  --brand-dark: #2f57c9;
+  --brand-soft: #eef2ff;
+  --topbar-from: #26355c;
+  --topbar-to: #3a4d8f;
+  --bg: #f4f6fa;
+  --card: #ffffff;
+  --text: #1f2430;
+  --text-2: #5b6478;
+  --text-3: #8a93a6;
+  --border: #e5e8f0;
+  --radius: 10px;
+  --sidebar-w: 208px;
+  --sidebar-w-sm: 64px;
+  --topbar-h: 56px;
+
+  --shadow-sm: 0 1px 2px rgba(20, 28, 48, .05);
+  --shadow-md: 0 4px 16px rgba(20, 28, 48, .07);
+  --shadow-lg: 0 10px 30px rgba(20, 28, 48, .12);
+
+  --el-color-primary: #3d6ef5;
+  --el-color-primary-light-3: #6b90f8;
+  --el-color-primary-light-5: #94b0fa;
+  --el-color-primary-light-7: #bdcffc;
+  --el-color-primary-light-8: #d2dffd;
+  --el-color-primary-light-9: #eef2ff;
+  --el-color-primary-dark-2: #2f57c9;
+  --el-border-radius-base: 7px;
+  --el-font-size-base: 13px;
+  --el-border-color: #e2e6f0;
+  --el-border-color-light: #e8ecf4;
+  --el-border-color-lighter: #eef1f7;
+  --el-text-color-primary: #1f2430;
+  --el-text-color-regular: #47506a;
+  --el-fill-color-blank: #fff;
+  --el-table-header-bg-color: #f7f9fd;
+  --el-table-header-text-color: #5b6478;
+  --el-table-row-hover-bg-color: #f6f9ff;
+  --el-table-border-color: #edf0f7;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #app { height: 100%; margin: 0; }
+
+body {
+  font-family: "Microsoft YaHei", "PingFang SC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 13px;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--brand); text-decoration: none; }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: #cdd4e3; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #b9c2d6; }
+::-webkit-scrollbar-track { background: transparent; }
+
+/* 通用页面骨架 */
+.page-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 56px;
+  margin-bottom: 12px;
+}
+.page-title {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: .2px;
+  position: relative;
+  padding-left: 11px;
+}
+.page-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 15px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, #5b8cff, #3d6ef5);
+}
+.page-head .head-actions { margin-left: auto; display: flex; gap: 8px; }
+
+.card {
+  background: var(--card);
+  border: 1px solid rgba(229, 232, 240, .9);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  box-shadow: var(--shadow-sm);
+}
+.card + .card { margin-top: 12px; }
+.card-head {
+  display: flex;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.card-title { font-size: 13px; font-weight: 600; }
+.card-date { margin-left: auto; color: var(--text-3); font-size: 12px; }
+
+.muted { color: var(--text-3); }
+
+/* Element Plus 细节统一 */
+.el-button { font-weight: 500; }
+.el-button--primary:not(.is-plain):not(.is-link) {
+  box-shadow: 0 2px 6px rgba(61, 110, 245, .22);
+}
+.el-input__wrapper,
+.el-textarea__inner,
+.el-select__wrapper {
+  box-shadow: 0 0 0 1px var(--el-border-color) inset;
+}
+.el-textarea__inner { border-radius: 8px; }
+.el-dialog { border-radius: 14px; box-shadow: var(--shadow-lg); }
+.el-dialog__header { margin-right: 0; padding-bottom: 14px; border-bottom: 1px solid var(--el-border-color-lighter); }
+.el-dialog__title { font-size: 15px; font-weight: 600; }
+.el-dialog__body { padding-top: 16px; }
+.el-message-box { border-radius: 12px; }
+.el-tag { border-radius: 6px; }
+
+.el-table { border-radius: 8px; font-size: 12.5px; }
+.el-table th.el-table__cell {
+  font-weight: 600;
+  background: var(--el-table-header-bg-color) !important;
+  color: var(--el-table-header-text-color);
+}
+.el-table td.el-table__cell { padding: 9px 0; }
+.el-table--border { border-color: var(--el-table-border-color); }
+
+.el-pagination { margin-top: 14px; justify-content: flex-end; }

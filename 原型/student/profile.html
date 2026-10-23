@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>个人中心 · 学生考试系统</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 9.3 12 4.8l9.5 4.5L12 13.8z"/><path d="M6.6 11.2v4.4c0 1.7 2.4 2.9 5.4 2.9s5.4-1.2 5.4-2.9v-4.4"/><path d="M20.7 10.1v4.6"/></svg></span>学生考试系统</a>
+  <nav class="topnav"><a class="" href="../admin/system-users.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.1"/><path d="M12 2.8v2.6M12 18.6v2.6M2.8 12h2.6M18.6 12h2.6M5.6 5.6l1.9 1.9M16.5 16.5l1.9 1.9M18.4 5.6l-1.9 1.9M7.5 16.5l-1.9 1.9"/></svg>系统设置</a></nav>
+  <div class="topbar-right"><div class="tb-item"><button class="icon-btn" title="消息通知"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.2 9.4a5.8 5.8 0 0 1 11.6 0c0 4.8 2 6.4 2 6.4H4.2s2-1.6 2-6.4z"/><path d="M10.1 19a2.2 2.2 0 0 0 3.8 0"/></svg><span class="dot-red"></span></button><div class="tb-menu"><div class="tb-menu-head">消息通知<button class="tb-allread" type="button">全部已读</button></div><div class="tb-msg unread"><div class="tb-msg-t">您发布的「2026年度消防安全知识竞赛」已有 3 人交卷</div><div class="tb-msg-d">10 分钟前</div></div><div class="tb-msg unread"><div class="tb-msg-t">「电工安全操作规范考试」将于今晚 20:00 结束，请及时关注监考动态</div><div class="tb-msg-d">32 分钟前</div></div><div class="tb-msg unread"><div class="tb-msg-t">学员张伟提交了 1 条试题纠错申请，待您处理</div><div class="tb-msg-d">2 小时前</div></div><div class="tb-msg"><div class="tb-msg-t">本周练习报告已生成，可在成绩分析中查看</div><div class="tb-msg-d">昨天 18:30</div></div></div></div><div class="tb-item"><button class="icon-btn tb-user" title="个人菜单"><div class="avatar">管</div>管理员</button><div class="tb-menu"><a class="tb-mi" href="profile.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"/><path d="M5 20.2c0-3.7 3.1-6.2 7-6.2s7 2.5 7 6.2"/></svg>个人中心</a><button class="tb-mi" type="button" data-toast="演示版：退出登录需连接后端服务"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 3.5H6.8v17h7.7"/><path d="M14.5 12h5.7v8.5h-5.7"/><path d="M9.6 12h.02"/></svg>退出登录</button></div></div></div>
+</header>
+<aside class="sidebar"><nav class="menu"><a class="menu-item" href="../index.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.6 12 3.6l8.5 7"/><path d="M5.6 9.4V20.4h12.8V9.4"/><path d="M10 20.4v-5.6h4v5.6"/></svg><span>首页</span></a><div class="menu-group open"><div class="menu-item active-parent"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.4"/><path d="M3.2 20c0-3.4 2.6-5.6 5.8-5.6s5.8 2.2 5.8 5.6"/><circle cx="17.2" cy="9" r="2.7"/><path d="M16.4 14.6c2.7.3 4.6 2.4 4.6 5"/></svg><span>学员中心</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9.5l6 6 6-6"/></svg></div><div class="menu-sub"><a class="sub-item" href="exam-center.html">考试中心</a><a class="sub-item" href="signup-center.html">报名中心</a><a class="sub-item" href="practice.html">练习中心</a><a class="sub-item active" href="profile.html">个人中心</a></div></div><div class="menu-group"><div class="menu-item"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="14" height="16" rx="2"/><path d="M9 5V3.4h6V5"/><path d="M9 11.5h6M9 15.5h4"/></svg><span>考试中心</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9.5l6 6 6-6"/></svg></div><div class="menu-sub"><a class="sub-item" href="../admin/outline.html">大纲管理</a><a class="sub-item" href="../admin/question-bank.html">题库管理</a><a class="sub-item" href="../admin/question.html">试题管理</a><a class="sub-item" href="../admin/strategy.html">组卷策略</a><a class="sub-item" href="../admin/paper.html">试卷管理</a><a class="sub-item" href="../admin/exam-plan.html">考试计划</a><a class="sub-item" href="../admin/exam-signup.html">考试报名</a><a class="sub-item" href="../admin/monitor.html">考试监控</a><a class="sub-item" href="../admin/records.html">交卷记录</a><a class="sub-item" href="../admin/marking.html">考试阅卷</a><a class="sub-item" href="../admin/marking-teachers.html">阅卷教师</a></div></div></nav></aside>
+<main class="main"><div class="crumbs"><b>学员中心</b> / 个人中心</div><div class="page-head"><button class="collapse-btn" title="折叠/展开侧边栏"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6l-6 6 6 6"/></svg></button><div class="page-title">个人中心</div><div class="head-actions"></div></div><div class="card profile-card"><div class="pmenu"><div class="pmenu-item active" data-panel="acct"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"/><path d="M5 20.2c0-3.7 3.1-6.2 7-6.2s7 2.5 7 6.2"/></svg><span>账号信息</span></div><div class="pmenu-item" data-panel="fav"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.6l2.7 5.5 6 .9-4.4 4.2 1.1 6-5.4-2.9-5.4 2.9 1.1-6L3.3 10l6-.9z"/></svg><span>我的收藏</span></div><div class="pmenu-item" data-panel="level"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5.6"/><path d="M8.9 13.7 7.4 21l4.6-2.4L16.6 21l-1.5-7.3"/></svg><span>我的等级</span></div><div class="pmenu-item" data-panel="myexam"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="14" height="16" rx="2"/><path d="M9 5V3.4h6V5"/><path d="M9 11.5h6M9 15.5h4"/></svg><span>我的考试</span></div><div class="pmenu-item" data-panel="mysignup"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3h7l4 4v14h-11z"/><path d="M13.5 3v4h4"/><path d="M9.5 12.5h5M9.5 16h5"/></svg><span>我的报名</span></div><div class="pmenu-item" data-panel="mypractice"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L18.2 9.8l-4-4L4 16z"/><path d="M13.6 6.2l4.2 4.2"/></svg><span>我的练习</span></div><div class="pmenu-item" data-panel="mypoints"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 20v-5.5M11.5 20V6.5M17.5 20v-8.5"/><path d="M3 20h18"/></svg><span>我的积分</span></div><div class="pmenu-item" data-panel="mystudy"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 5.2A2.2 2.2 0 0 1 6.7 3h12.8v15.6H6.7a2.2 2.2 0 0 0-2.2 2.2z"/><path d="M4.5 18.4V5.2"/><path d="M8.5 7.5h7M8.5 11h7"/></svg><span>我的学习情况</span></div></div><div class="pbody"><div class="ppanel show" id="panel-acct"><div class="panel-title">账号信息</div>
+<div class="acct">
+  <div class="acct-avatar"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"/><path d="M5 20.2c0-3.7 3.1-6.2 7-6.2s7 2.5 7 6.2"/></svg></div>
+  <div class="acct-pill">用户名</div>
+  <div class="acct-pill">超级管理员</div>
+</div></div><div class="ppanel" id="panel-fav"><div class="panel-title">我的收藏</div>
+<div class="stub-box">
+  <div class="st-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.6l2.7 5.5 6 .9-4.4 4.2 1.1 6-5.4-2.9-5.4 2.9 1.1-6L3.3 10l6-.9z"/></svg></div>
+  <h3>暂无收藏</h3>
+  <p>在练习或考试过程中收藏的试题会集中显示在这里，方便随时复习。</p>
+</div></div><div class="ppanel" id="panel-level"><div class="panel-title">我的等级</div>
+<div class="level-box">
+  <div class="level-badge">Lv.5</div>
+  <div>
+    <div class="level-name">中级学员</div>
+    <div class="level-bar"><div class="level-bar-in" style="width:62%"></div></div>
+    <div class="level-tip">再获得 380 积分即可升级到 Lv.6 高级学员</div>
+  </div>
+</div></div><div class="ppanel" id="panel-myexam"><div class="panel-title">我的考试</div><div class="exam-grid"><div class="exam-card">
+  <div class="exam-head">
+    <div class="exam-ic blue"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3h7l4 4v14h-11z"/><path d="M13.5 3v4h4"/><path d="M9.5 12.5h5M9.5 16h5"/></svg></div>
+    <div class="exam-title"><span class="d d-green"></span>2026年度消防安全知识竞赛</div>
+    <button class="exam-more" data-toast="演示版：完整详情请前往考试中心查看"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></button>
+  </div>
+  <div class="exam-time"><span class="d d-green"></span>2026-10-16 14:00:00 开始</div>
+  <div class="exam-time"><span class="d d-red"></span>2026-10-22 23:59:00 结束</div>
+  <div class="exam-foot">
+    <div class="exam-meta">考试时长：<b>30分钟</b>　满分：<b>100分</b></div>
+    <button class="btn btn-outline btn-sm">立即考试</button>
+  </div>
+</div><div class="exam-card">
+  <div class="exam-head">
+    <div class="exam-ic blue"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3h7l4 4v14h-11z"/><path d="M13.5 3v4h4"/><path d="M9.5 12.5h5M9.5 16h5"/></svg></div>
+    <div class="exam-title"><span class="d d-green"></span>电工安全操作规范考试</div>
+    <button class="exam-more" data-toast="演示版：完整详情请前往考试中心查看"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></button>
+  </div>
+  <div class="exam-time"><span class="d d-green"></span>2026-10-12 00:00:00 开始</div>
+  <div class="exam-time"><span class="d d-red"></span>2026-10-23 20:00:00 结束</div>
+  <div class="exam-foot">
+    <div class="exam-meta">考试时长：<b>60分钟</b>　满分：<b>100分</b></div>
+    <button class="btn btn-outline btn-sm">立即考试</button>
+  </div>
+</div><div class="exam-card">
+  <div class="exam-head">
+    <div class="exam-ic blue"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3h7l4 4v14h-11z"/><path d="M13.5 3v4h4"/><path d="M9.5 12.5h5M9.5 16h5"/></svg></div>
+    <div class="exam-title"><span class="d d-green"></span>有限空间作业安全考试</div>
+    <button class="exam-more" data-toast="演示版：完整详情请前往考试中心查看"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></button>
+  </div>
+  <div class="exam-time"><span class="d d-green"></span>2026-10-12 00:00:00 开始</div>
+  <div class="exam-time"><span class="d d-red"></span>2026-10-23 20:00:00 结束</div>
+  <div class="exam-foot">
+    <div class="exam-meta">考试时长：<b>60分钟</b>　满分：<b>100分</b></div>
+    <button class="btn btn-outline btn-sm">立即考试</button>
+  </div>
+</div><div class="exam-card">
+  <div class="exam-head">
+    <div class="exam-ic gray"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3h7l4 4v14h-11z"/><path d="M13.5 3v4h4"/><path d="M9.5 12.5h5M9.5 16h5"/></svg></div>
+    <div class="exam-title"><span class="d d-red"></span>高处作业安全技术考试</div>
+    <button class="exam-more" data-toast="演示版：完整详情请前往考试中心查看"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></button>
+  </div>
+  <div class="exam-time"><span class="d d-green"></span>2026-10-13 00:00:00 开始</div>
+  <div class="exam-time"><span class="d d-red"></span>2026-10-15 00:00:00 结束</div>
+  <div class="exam-foot">
+    <div class="exam-meta">考试时长：<b>60分钟</b>　得分：<b>41分</b></div>
+    <button class="btn btn-gray btn-sm">已结束</button>
+  </div>
+</div><div class="exam-card">
+  <div class="exam-head">
+    <div class="exam-ic gray"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3h7l4 4v14h-11z"/><path d="M13.5 3v4h4"/><path d="M9.5 12.5h5M9.5 16h5"/></svg></div>
+    <div class="exam-title"><span class="d d-gray"></span>危险化学品安全管理考试</div>
+    <button class="exam-more" data-toast="演示版：完整详情请前往考试中心查看"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></button>
+  </div>
+  <div class="exam-time"><span class="d d-green"></span>2026-10-15 00:00:00 开始</div>
+  <div class="exam-time"><span class="d d-red"></span>2026-10-16 00:00:00 结束</div>
+  <div class="exam-foot">
+    <div class="exam-meta">考试时长：<b>60分钟</b>　得分：<b>41分</b></div>
+    <button class="btn btn-gray btn-sm">已结束</button>
+  </div>
+</div><div class="exam-card">
+  <div class="exam-head">
+    <div class="exam-ic gray"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3h7l4 4v14h-11z"/><path d="M13.5 3v4h4"/><path d="M9.5 12.5h5M9.5 16h5"/></svg></div>
+    <div class="exam-title"><span class="d d-gray"></span>注册安全工程师模拟考试</div>
+    <button class="exam-more" data-toast="演示版：完整详情请前往考试中心查看"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></button>
+  </div>
+  <div class="exam-time"><span class="d d-green"></span>2026-10-01 00:00:00 开始</div>
+  <div class="exam-time"><span class="d d-red"></span>2026-10-16 00:00:00 结束</div>
+  <div class="exam-foot">
+    <div class="exam-meta">考试时长：<b>100分钟</b>　得分：<b>90分</b></div>
+    <button class="btn btn-gray btn-sm">已结束</button>
+  </div>
+</div></div></div><div class="ppanel" id="panel-mysignup"><div class="panel-title">我的报名</div><div class="exam-grid"><div class="exam-card">
+  <div class="exam-head">
+    <div class="exam-ic gray"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3h7l4 4v14h-11z"/><path d="M13.5 3v4h4"/><path d="M9.5 12.5h5M9.5 16h5"/></svg></div>
+    <div class="exam-title"><span class="d d-gray"></span>2026年第四季度安全生产管理人员考试<span class="tag tag-purple" style="margin-left:6px;vertical-align:1px">非公开报名</span></div>
+    <button class="exam-more" data-toast="演示版：完整详情请前往考试中心查看"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></button>
+  </div>
+  <div class="exam-time"><span class="d d-green"></span>2026-10-15 03:00:00 开始</div>
+  <div class="exam-time"><span class="d d-red"></span>2026-10-16 23:00:00 结束</div>
+  <div class="exam-foot">
+    <div class="exam-meta">考试时长：<b>120分钟</b>　满分：<b>100分</b></div>
+    <button class="btn btn-gray btn-sm">已结束</button>
+  </div>
+</div><div class="exam-card">
+  <div class="exam-head">
+    <div class="exam-ic gray"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3h7l4 4v14h-11z"/><path d="M13.5 3v4h4"/><path d="M9.5 12.5h5M9.5 16h5"/></svg></div>
+    <div class="exam-title"><span class="d d-red"></span>特种作业人员复审考试<span class="tag tag-purple" style="margin-left:6px;vertical-align:1px">非公开报名</span></div>
+    <button class="exam-more" data-toast="演示版：完整详情请前往考试中心查看"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></button>
+  </div>
+  <div class="exam-time"><span class="d d-green"></span>2026-10-12 00:00:00 开始</div>
+  <div class="exam-time"><span class="d d-red"></span>2026-10-15 00:00:00 结束</div>
+  <div class="exam-foot">
+    <div class="exam-meta">考试时长：<b>60分钟</b>　得分：<b>69分</b></div>
+    <button class="btn btn-gray btn-sm">已结束</button>
+  </div>
+</div><div class="exam-card">
+  <div class="exam-head">
+    <div class="exam-ic gray"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3h7l4 4v14h-11z"/><path d="M13.5 3v4h4"/><path d="M9.5 12.5h5M9.5 16h5"/></svg></div>
+    <div class="exam-title"><span class="d d-gray"></span>消防安全管理人专项考试<span class="tag tag-purple" style="margin-left:6px;vertical-align:1px">非公开报名</span></div>
+    <button class="exam-more" data-toast="演示版：完整详情请前往考试中心查看"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></button>
+  </div>
+  <div class="exam-time"><span class="d d-green"></span>2026-10-12 00:00:00 开始</div>
+  <div class="exam-time"><span class="d d-red"></span>2026-10-15 00:00:00 结束</div>
+  <div class="exam-foot">
+    <div class="exam-meta">考试时长：<b>60分钟</b>　得分：<b>96分</b></div>
+    <button class="btn btn-gray btn-sm">已结束</button>
+  </div>
+</div><div class="exam-card">
+  <div class="exam-head">
+    <div class="exam-ic blue"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3h7l4 4v14h-11z"/><path d="M13.5 3v4h4"/><path d="M9.5 12.5h5M9.5 16h5"/></svg></div>
+    <div class="exam-title"><span class="d d-green"></span>注册安全工程师考前冲刺模拟考试<span class="tag tag-purple" style="margin-left:6px;vertical-align:1px">非公开报名</span></div>
+    <button class="exam-more" data-toast="演示版：完整详情请前往考试中心查看"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></button>
+  </div>
+  <div class="exam-time"><span class="d d-green"></span>2026-10-09 00:00:00 开始</div>
+  <div class="exam-time"><span class="d d-red"></span>2026-10-30 00:00:00 结束</div>
+  <div class="exam-foot">
+    <div class="exam-meta">考试时长：<b>60分钟</b>　满分：<b>100分</b></div>
+    <button class="btn btn-outline btn-sm">立即报名</button>
+  </div>
+</div><div class="exam-card">
+  <div class="exam-head">
+    <div class="exam-ic blue"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3h7l4 4v14h-11z"/><path d="M13.5 3v4h4"/><path d="M9.5 12.5h5M9.5 16h5"/></svg></div>
+    <div class="exam-title"><span class="d d-green"></span>班组长安全管理能力认证考试<span class="tag tag-purple" style="margin-left:6px;vertical-align:1px">非公开报名</span></div>
+    <button class="exam-more" data-toast="演示版：完整详情请前往考试中心查看"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></button>
+  </div>
+  <div class="exam-time"><span class="d d-green"></span>2026-10-01 00:00:00 开始</div>
+  <div class="exam-time"><span class="d d-red"></span>2026-10-31 00:00:00 结束</div>
+  <div class="exam-foot">
+    <div class="exam-meta">考试时长：<b>120分钟</b>　满分：<b>120分</b></div>
+    <button class="btn btn-gray btn-sm">未报名</button>
+  </div>
+</div><div class="exam-card">
+  <div class="exam-head">
+    <div class="exam-ic blue"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3h7l4 4v14h-11z"/><path d="M13.5 3v4h4"/><path d="M9.5 12.5h5M9.5 16h5"/></svg></div>
+    <div class="exam-title"><span class="d d-green"></span>新员工入职安全培训考试<span class="tag tag-purple" style="margin-left:6px;vertical-align:1px">非公开报名</span></div>
+    <button class="exam-more" data-toast="演示版：完整详情请前往考试中心查看"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg></button>
+  </div>
+  <div class="exam-time"><span class="d d-green"></span>2026-10-09 00:00:00 开始</div>
+  <div class="exam-time"><span class="d d-red"></span>2026-11-30 00:00:00 结束</div>
+  <div class="exam-foot">
+    <div class="exam-meta">考试时长：<b>60分钟</b>　满分：<b>100分</b></div>
+    <button class="btn btn-outline btn-sm">立即报名</button>
+  </div>
+</div></div></div><div class="ppanel" id="panel-mypractice"><div class="panel-title">我的练习</div><div class="table-wrap"><div class="table-scroll"><table style="min-width:900px"><thead><tr><th>题库</th><th>类型</th><th>开始时间</th><th>结束时间</th><th>习题进度</th><th>操作</th></tr></thead><tbody><tr><td>消防安全基础题库</td><td><span class="tag tag-orange">判断题</span></td><td>2026-10-16 10:54:12</td><td>2026-10-16 10:54:12</td><td>0/309</td><td><a class="link" href="javascript:void(0)" data-modal="modal-practice-detail" data-title="练习详情">查看</a></td></tr><tr><td>电工安全操作题库</td><td><span class="tag tag-blue">章节练习</span></td><td>2026-07-21 16:07:38</td><td>2026-07-21 16:07:38</td><td>0/39</td><td><a class="link" href="javascript:void(0)" data-modal="modal-practice-detail" data-title="练习详情">查看</a></td></tr><tr><td>危化品管理题库</td><td><span class="tag tag-purple">模拟试题</span></td><td>2026-07-21 16:01:24</td><td>2026-07-21 16:01:24</td><td>0/3</td><td><a class="link" href="javascript:void(0)" data-modal="modal-practice-detail" data-title="练习详情">查看</a></td></tr><tr><td>高处作业题库</td><td><span class="tag tag-red">错题重练</span></td><td>2026-07-21 15:53:53</td><td>2026-07-21 15:53:53</td><td>0/73</td><td><a class="link" href="javascript:void(0)" data-modal="modal-practice-detail" data-title="练习详情">查看</a></td></tr><tr><td>起重机械题库</td><td><span class="tag tag-green">每日一练</span></td><td>2026-07-21 15:53:46</td><td>2026-07-21 15:53:46</td><td>2/199</td><td><a class="link" href="javascript:void(0)" data-modal="modal-practice-detail" data-title="练习详情">查看</a></td></tr><tr><td>消防设施题库</td><td><span class="tag tag-blue">章节练习</span></td><td>2026-07-21 15:47:36</td><td>2026-07-21 15:47:36</td><td>0/200</td><td><a class="link" href="javascript:void(0)" data-modal="modal-practice-detail" data-title="练习详情">查看</a></td></tr><tr><td>电气安全题库</td><td><span class="tag tag-purple">模拟试题</span></td><td>2026-06-26 09:50:11</td><td>2026-06-26 09:50:11</td><td>0/218</td><td><a class="link" href="javascript:void(0)" data-modal="modal-practice-detail" data-title="练习详情">查看</a></td></tr><tr><td>应急救护题库</td><td><span class="tag tag-orange">判断题</span></td><td>2026-03-23 10:09:36</td><td>2026-03-23 10:09:36</td><td>0/196</td><td><a class="link" href="javascript:void(0)" data-modal="modal-practice-detail" data-title="练习详情">查看</a></td></tr></tbody></table></div><div class="pager2"><span class="pg-info2">第 1-10 条/总共 126 条</span><button class="pg active">1</button><button class="pg">2</button><button class="pg">3</button><button class="pg">4</button><button class="pg">5</button><button class="pg">···</button><button class="pg">13</button><button class="pg">下一页</button><select class="f-select pg-size"><option>10 条/页</option><option>20 条/页</option><option>50 条/页</option></select></div></div></div><div class="ppanel" id="panel-mypoints"><div class="panel-title">我的积分</div><div class="points-head"><span class="points-num">5,114</span><span class="points-label">当前积分</span></div><div class="table-wrap"><div class="table-scroll"><table style="min-width:640px"><thead><tr><th>时间</th><th>类型</th><th>积分</th><th>余额</th></tr></thead><tbody><tr><td>2026-10-20 09:12:00</td><td>每日签到</td><td>+5</td><td>5,114</td></tr><tr><td>2026-10-18 14:30:00</td><td>完成练习</td><td>+20</td><td>5,109</td></tr><tr><td>2026-10-16 15:05:00</td><td>通过考试</td><td>+100</td><td>5,089</td></tr><tr><td>2026-10-12 10:20:00</td><td>每日签到</td><td>+5</td><td>4,989</td></tr></tbody></table></div><div class="pager"><span class="pg-info">共 486 条</span><button class="pg">上一页</button><button class="pg active">1</button><button class="pg">2</button><button class="pg">3</button><button class="pg">下一页</button></div></div></div><div class="ppanel" id="panel-mystudy"><div class="panel-title">我的学习情况</div><div class="card" style="margin-bottom:0"><div class="stat-row"><div class="stat-cell"><div class="stat-num">52<span class="stat-unit">小时</span></div><div class="ov-label">学习时长</div></div><div class="stat-cell"><div class="stat-num">5,114<span class="stat-unit">分</span></div><div class="ov-label">学习积分</div></div><div class="stat-cell"><div class="stat-num">55<span class="stat-unit">场</span></div><div class="ov-label">考试次数</div></div><div class="stat-cell"><div class="stat-num">189<span class="stat-unit">次</span></div><div class="ov-label">练习次数</div></div></div></div></div></div></div><div class="mask" id="modal-practice-detail">
+  <div class="modal" style="width:640px">
+    <div class="modal-head"><span class="modal-title">练习详情</span><button class="modal-close" data-close><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <div class="modal-body">
+      <div class="perm-info"><span class="m-label">题库</span><span class="perm-name">消防安全基础题库</span></div>
+      <div class="perm-info"><span class="m-label">类型</span><span class="perm-name">判断题 · 章节练习</span>
+        <span class="m-label" style="margin-left:18px">习题进度</span><span class="perm-name">0 / 309</span></div>
+      <div class="perm-title">最近练习记录</div>
+      <div class="table-wrap"><div class="table-scroll">
+      <table style="min-width:520px"><thead><tr><th>练习时间</th><th>题量</th><th>正确率</th><th>状态</th></tr></thead>
+      <tbody>
+        <tr><td>2026-10-16 10:54</td><td>20 题</td><td>90%</td><td><span class="tag tag-green">已完成</span></td></tr>
+        <tr><td>2026-10-15 09:22</td><td>20 题</td><td>85%</td><td><span class="tag tag-green">已完成</span></td></tr>
+        <tr><td>2026-10-14 21:07</td><td>15 题</td><td>93%</td><td><span class="tag tag-blue">进行中</span></td></tr>
+      </tbody></table></div></div>
+    </div>
+    <div class="modal-foot"><button class="btn btn-default" data-close>关闭</button>
+    <button class="btn btn-primary" data-close data-toast="演示版：继续练习请前往练习中心">继续练习</button></div>
+  </div>
+</div></main>
+<button class="fab" title="在线客服"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.2 13.2a7.8 7.8 0 0 1 15.6 0"/><rect x="3" y="13" width="4.2" height="6" rx="1.8"/><rect x="16.8" y="13" width="4.2" height="6" rx="1.8"/><path d="M19.4 19.2a3.8 3.8 0 0 1-3.8 3.3h-2.2"/></svg></button>
+<script src="../assets/js/app.js"></script>
+</body>
+</html>

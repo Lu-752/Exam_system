@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>在线考试 · 学生考试系统</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<div class="exam-page" id="modal-exam" data-min="1" data-dur="30" data-end="2026-12-31 23:59:00" data-times="1" data-used="0" data-name="2026年度消防安全知识竞赛" data-shuffle="1">
+  <div class="exam-modal exam-full">
+    <div class="exam-crumb"><a href="index.html">学员中心</a> / <a href="exam-center.html">考试中心</a> / <a href="exam-detail.html">考试详情</a> / <span>在线考试</span></div>
+    <div class="exam-top">
+      <div class="exam-name-wrap"><span class="exam-name">2026年度消防安全知识竞赛</span><span class="shuffle-flag" id="exam-shuffle-flag" style="display:none">乱序</span><span class="exam-sub">演示试卷 · 共 4 题 · 满分 100</span></div>
+      <div class="exam-top-right">
+        <span class="exam-pass">及格分：60分 / 100分</span>
+        <span class="exam-st">开始时间：<i id="exam-start-time">--:--:--</i></span>
+        <span class="exam-timer" id="exam-timer">00时30分00秒</span>
+        <span class="fs-ctl">显示字号 <button type="button" id="fs-minus" class="fs-btn">－</button><button type="button" id="fs-plus" class="fs-btn">＋</button></span>
+        <button class="btn btn-default btn-sm" id="exam-shuffle" title="重新打乱题目与选项顺序（防作弊）">乱序</button>
+        <button class="btn btn-default btn-sm" id="exam-end-sim" title="演示：快进到计划结束时间，系统自动交卷">模拟到点</button>
+        <button class="btn btn-primary btn-sm" id="exam-submit">立即交卷</button>
+        <a class="exam-back" href="exam-center.html">退出</a>
+      </div>
+    </div>
+    <div class="exam-banner" id="exam-banner">
+      <div class="eb-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.2 9.4a5.8 5.8 0 0 1 11.6 0c0 4.8 2 6.4 2 6.4H4.2s2-1.6 2-6.4z"/><path d="M10.1 19a2.2 2.2 0 0 0 3.8 0"/></svg></div>
+      <div class="eb-txt"><b>监考老师发来消息</b><span id="exam-banner-text"></span></div>
+      <button class="eb-close" id="exam-banner-close">关闭</button>
+    </div>
+    <div class="exam-paused" id="exam-paused">
+      <div class="ep-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M12 7.4V12l3.2 2.1"/></svg></div>
+      <h3>考试已暂停</h3>
+      <p>监考老师已暂停你的考试，答题界面已锁定，倒计时同时停止。请等待监考老师恢复考试，期间请勿关闭或刷新页面。</p>
+      <div class="ep-tip">恢复考试后倒计时将继续，已作答内容不受影响</div>
+    </div>
+    <div class="exam-body">
+      <div class="exam-main"><div class="q-box on" data-q="1" data-type="single"><div class="q-head"><span class="q-tag tag-blue">单选题 · 2分</span><button class="q-flag" type="button" data-flag="1">标记一下</button></div><div class="q-title">1、灭火器压力表指针指向红区表示什么？</div><div class="q-opt" data-k="A"><span class="qk">A</span><span>压力正常</span></div><div class="q-opt" data-k="B"><span class="qk">B</span><span>压力过低</span></div><div class="q-opt" data-k="C"><span class="qk">C</span><span>压力过高</span></div><div class="q-opt" data-k="D"><span class="qk">D</span><span>已失效</span></div></div><div class="q-box" data-q="2" data-type="multi"><div class="q-head"><span class="q-tag tag-purple">多选题 · 3分</span><button class="q-flag" type="button" data-flag="2">标记一下</button></div><div class="q-title">2、下列哪些属于常见的消防设施？</div><div class="q-opt" data-k="A"><span class="qk">A</span><span>消火栓</span></div><div class="q-opt" data-k="B"><span class="qk">B</span><span>灭火器</span></div><div class="q-opt" data-k="C"><span class="qk">C</span><span>应急照明</span></div><div class="q-opt" data-k="D"><span class="qk">D</span><span>电梯</span></div></div><div class="q-box" data-q="3" data-type="single"><div class="q-head"><span class="q-tag tag-orange">判断题 · 1分</span><button class="q-flag" type="button" data-flag="3">标记一下</button></div><div class="q-title">3、消防通道应保持畅通，不得堆放杂物。</div><div class="q-opt" data-k="A"><span class="qk">A</span><span>正确</span></div><div class="q-opt" data-k="B"><span class="qk">B</span><span>错误</span></div></div><div class="q-box" data-q="4" data-type="text"><div class="q-head"><span class="q-tag tag-red">问答题 · 10分</span><button class="q-flag" type="button" data-flag="4">标记一下</button></div><div class="q-title">4、简述危险化学品泄漏现场的应急处置流程。</div><textarea class="q-textarea" placeholder="请输入你的答案"></textarea></div>
+        <div class="exam-totop" id="exam-totop">回到顶部 ↑</div>
+      </div>
+      <div class="exam-sheet">
+        <div class="sheet-title">答题卡</div>
+        <div class="sheet-grid"><button class="sheet-cell cur" data-jump="1">1</button><button class="sheet-cell" data-jump="2">2</button><button class="sheet-cell" data-jump="3">3</button><button class="sheet-cell" data-jump="4">4</button></div>
+        <div class="sheet-tip">蓝色 = 已作答<br>橙色 = 已标记<br>点击题号可快速跳转<br>考试期间请勿切屏（防作弊已开启）</div>
+      </div>
+    </div>
+  </div>
+</div><div class="mask" id="cf-submit">
+  <div class="modal modal-sm">
+    <div class="modal-head">交卷确认</div>
+    <div class="modal-body cf-body"><div class="cf-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.2 2.8 20h18.4z"/><path d="M12 10v4.4"/><path d="M12 17.1h.02"/></svg></div><div class="cf-text" id="cf-submit-text">确认交卷吗？</div></div>
+    <div class="modal-foot"><button class="btn btn-default" data-close>再检查一下</button>
+    <button class="btn btn-primary" id="exam-submit-ok">确认交卷</button></div>
+  </div>
+</div><div class="mask" id="modal-result" data-show-score="1" data-show-answer="1">
+  <div class="modal modal-sm">
+    <div class="modal-head">考试结果<button class="modal-close" data-close><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <div class="modal-body">
+      <div class="result-score" id="result-score-box"><div class="result-num" id="result-num">92<small> 分</small></div></div>
+      <div class="result-hidden" id="result-score-hidden" style="display:none">本考试成绩尚未公布，请等待教师发布成绩</div>
+      <div class="result-stat">
+        <div class="rs"><div class="rs-v" id="result-correct">46 / 50</div><div class="rs-l">正确题数</div></div>
+        <div class="rs"><div class="rs-v" id="result-status">及格</div><div class="rs-l">判定（及格线 60 分）</div></div>
+      </div>
+      <div class="result-hidden" id="result-answer-hidden" style="display:none">本考试设置为交卷后不显示答案</div>
+      <div class="review-list" id="review-list">
+        <div class="review-item">1. <b>B</b>（压力过低）</div>
+        <div class="review-item">2. <b>ABC</b>（消火栓、灭火器、应急照明）</div>
+        <div class="review-item">3. <b>正确</b></div>
+        <div class="review-item">4. 参考答案要点：疏散人员、切断泄漏源、佩戴防护装备、通风稀释、上报并按预案处置。</div>
+      </div>
+    </div>
+    <div class="modal-foot"><button class="btn btn-default" id="result-review-btn">查看答案</button>
+    <button class="btn btn-primary" data-close>完成</button></div>
+  </div>
+</div>
+<script src="../assets/js/app.js"></script>
+</body>
+</html>

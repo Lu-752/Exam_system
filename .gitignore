@@ -1,0 +1,24 @@
+# --- 依赖与构建产物 ---
+node_modules/
+dist/
+server/target/
+
+# --- 本地运行数据（H2 库 / 备份 / 日志）---
+data/
+server/data/
+*.log
+*.out
+shots/
+.shots/
+
+# --- 协作与工作区私有文件 ---
+.workbuddy/
+
+# --- 设计原型临时备份 ---
+原型/tools/*.bak*
+
+# --- IDE ---
+.idea/
+.vscode/
+*.iml
+.DS_Store
