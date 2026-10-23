@@ -40,6 +40,12 @@
           </div>
           <div class="b-meta">已练 {{ b.practicedCount }} 题 · 正确率 {{ b.correctRate }}%</div>
           <el-progress :percentage="Math.min(100, Number(b.correctRate))" :stroke-width="5" :show-text="false" />
+          <div class="b-foot">
+            <span class="b-hint">{{ bankId === b.id ? '练习中' : '点击开始' }}</span>
+            <el-button type="primary" size="small" :plain="bankId === b.id" @click.stop="chooseBank(b.id)">
+              {{ bankId === b.id ? '重新加载' : '开始练习' }}
+            </el-button>
+          </div>
         </div>
         <el-empty v-if="!banks.length" description="暂无题库" :image-size="60" />
       </div>
@@ -78,6 +84,15 @@
             <span class="fb-answer">正确答案：{{ result.correctAnswer }}</span>
           </div>
           <div v-if="result.analysis" class="fb-analysis">解析：{{ result.analysis }}</div>
+        </div>
+
+        <div class="q-nav">
+          <el-button size="small" :disabled="index === 0" @click="jump(index - 1)">上一题</el-button>
+          <div class="dots">
+            <span v-for="(q, i) in questions" :key="q.id" class="dot" :class="{ on: i === index }"
+                  :title="`第 ${i + 1} 题`" @click="jump(i)">{{ i + 1 }}</span>
+          </div>
+          <el-button size="small" :disabled="index >= questions.length - 1" @click="jump(index + 1)">下一题</el-button>
         </div>
 
         <div class="q-foot">
@@ -208,6 +223,13 @@ function next() {
   resetAnswer()
 }
 
+/** 自由跳题：切换题目并清空未提交的作答 */
+function jump(i: number) {
+  if (i < 0 || i >= questions.value.length || i === index.value) return
+  index.value = i
+  resetAnswer()
+}
+
 async function loadWrong() {
   wrongLoading.value = true
   try {
@@ -270,6 +292,21 @@ onMounted(async () => {
 .b-head { display: flex; align-items: center; gap: 8px; }
 .b-name { font-size: 13px; font-weight: 600; flex: 1; }
 .b-meta { margin: 6px 0; font-size: 12px; color: var(--text-3); }
+.b-foot { display: flex; align-items: center; margin-top: 8px; }
+.b-hint { font-size: 12px; color: var(--text-3); }
+.b-foot .el-button { margin-left: auto; }
+
+.q-nav { display: flex; align-items: center; gap: 12px; margin-top: 16px; }
+.dots { display: flex; flex-wrap: wrap; gap: 6px; flex: 1; justify-content: center; }
+.dot {
+  min-width: 24px; height: 24px; padding: 0 4px; border-radius: 6px;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 12px; color: var(--text-2); cursor: pointer;
+  border: 1px solid var(--border); background: #fff;
+  transition: all 0.15s;
+}
+.dot:hover { border-color: #c9d6ff; color: var(--brand); }
+.dot.on { background: var(--brand); border-color: var(--brand); color: #fff; font-weight: 600; }
 
 .q-head { display: flex; align-items: center; gap: 10px; }
 .q-index { font-size: 12px; color: var(--text-3); }
