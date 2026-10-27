@@ -1,0 +1,34 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', padding: 0, position: 'relative', overflow: 'hidden' }}>
+  <Text style={{ position: 'absolute', left: 80, top: 148, width: 420, fontSize: 34, lineHeight: 1.45, fontWeight: 'bold', color: '#17191E' }}>
+    一场考试的组织，通常断在四个地方
+  </Text>
+
+  <Box style={{ position: 'absolute', left: 80, top: 340, width: 420, height: 1, background: '#DCDEE3' }} />
+
+  <Text style={{ position: 'absolute', left: 80, top: 366, width: 380, fontSize: 14, color: '#8C919C', lineHeight: 1.85 }}>
+    工具各管一段，数据对不上，责任也说不清。下面四条，是受访单位反馈最集中的。
+  </Text>
+
+  <Box style={{ position: 'absolute', left: 560, top: 148, width: 640, borderTop: '1px solid #DCDEE3', paddingTop: 18, flexDirection: 'column' }}>
+    <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#17191E' }}>命题分散在各人手里</Text>
+    <Text style={{ fontSize: 13, color: '#4A4F5A', lineHeight: 1.7, marginTop: 6 }}>题目散落在文档和聊天记录里，重复出题、难度失衡没人管。</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 560, top: 258, width: 640, borderTop: '1px solid #DCDEE3', paddingTop: 18, flexDirection: 'column' }}>
+    <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#17191E' }}>监考只能靠人盯</Text>
+    <Text style={{ fontSize: 13, color: '#4A4F5A', lineHeight: 1.7, marginTop: 6 }}>几十人同时开考，谁卡住、谁掉线，全凭监考老师的经验判断。</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 560, top: 368, width: 640, borderTop: '1px solid #DCDEE3', paddingTop: 18, flexDirection: 'column' }}>
+    <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#17191E' }}>阅卷与统分靠手工</Text>
+    <Text style={{ fontSize: 13, color: '#4A4F5A', lineHeight: 1.7, marginTop: 6 }}>客观题对答案、主观题翻卷子，算错一处整张表都要重来。</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 560, top: 478, width: 640, borderTop: '1px solid #DCDEE3', paddingTop: 18, flexDirection: 'column' }}>
+    <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#17191E' }}>考完仍不知教什么</Text>
+    <Text style={{ fontSize: 13, color: '#4A4F5A', lineHeight: 1.7, marginTop: 6 }}>只有一张成绩单，看不出哪道题全员失分，培训内容无从调整。</Text>
+  </Box>
+
+  <Text style={{ position: 'absolute', left: 80, top: 668, fontSize: 12, color: '#B0B4BD' }}>问题</Text>
+  <Text style={{ position: 'absolute', right: 80, top: 668, fontSize: 12, color: '#B0B4BD' }}>02 / 12</Text>
+</Slide>

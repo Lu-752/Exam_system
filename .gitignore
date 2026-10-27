@@ -2,6 +2,14 @@
 node_modules/
 dist/
 server/target/
+# 前端打包后拷入后端的静态资源（由 build_release.py 生成，非源码）
+server/src/main/resources/static/
+# 发行包（由 build_release.py 生成）
+release/
+release.zip
+# 文档生成的中间版本（_v1_ / -v2. / -v3. 等），只保留定稿
+**/_v[0-9]*_*
+**/*-v[0-9].*
 
 # --- 本地运行数据（H2 库 / 备份 / 日志）---
 data/
@@ -16,6 +24,17 @@ shots/
 
 # --- 设计原型临时备份 ---
 原型/tools/*.bak*
+
+# --- 工具链缓存与中间产物 ---
+.slidep/
+**/.slidep/
+**/.cache/
+~$*
+*.tmp
+
+# --- 调试/临时脚本输出 ---
+_attempt.json
+output/_verify_test/
 
 # --- IDE ---
 .idea/

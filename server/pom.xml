@@ -15,7 +15,7 @@
   <artifactId>exam-server</artifactId>
   <version>0.1.0</version>
   <name>exam-server</name>
-  <description>学生考试系统 · 后端（模块化单体）</description>
+  <description>考试系统 · 后端（模块化单体）</description>
 
   <properties>
     <java.version>21</java.version>

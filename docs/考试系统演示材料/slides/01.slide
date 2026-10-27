@@ -1,0 +1,16 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', padding: 0, position: 'relative', overflow: 'hidden' }}>
+  <Box style={{ position: 'absolute', left: 0, top: 0, width: 12, height: 720, background: '#1F3A5F' }} />
+
+  <Text style={{ position: 'absolute', left: 80, top: 214, fontSize: 56, fontWeight: 'bold', color: '#17191E', letterSpacing: 2 }}>考试系统</Text>
+  <Text style={{ position: 'absolute', left: 80, top: 306, fontSize: 18, color: '#4A4F5A', letterSpacing: 1 }}>在线考试与监考平台</Text>
+
+  <Box style={{ position: 'absolute', left: 80, top: 362, width: 1050, height: 1, background: '#DCDEE3' }} />
+
+  <Text style={{ position: 'absolute', left: 80, top: 386, fontSize: 14, color: '#8C919C', lineHeight: 1.9 }}>
+    从命题到成绩：大纲 · 题库 · 组卷 · 排考 · 报名 · 考试 · 监考 · 阅卷 · 统计
+  </Text>
+
+  <Text style={{ position: 'absolute', left: 80, top: 596, fontSize: 13, color: '#17191E' }}>产品演示材料</Text>
+  <Text style={{ position: 'absolute', left: 184, top: 596, fontSize: 13, color: '#8C919C' }}>2026 年 10 月</Text>
+  <Text style={{ position: 'absolute', right: 80, top: 596, fontSize: 13, color: '#B0B4BD' }}>V0.1.0</Text>
+</Slide>

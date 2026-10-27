@@ -10,7 +10,6 @@ const routes: RouteRecordRaw[] = [
     children: [
       { path: '', redirect: '/dashboard' },
       { path: 'dashboard', name: 'dashboard', component: () => import('@/views/Dashboard.vue'), meta: { title: '首页' } },
-      { path: 'students', name: 'students', component: () => import('@/views/Students.vue'), meta: { title: '学员管理' } },
       { path: 'questions', name: 'questions', component: () => import('@/views/Questions.vue'), meta: { title: '题库与试题' } },
       { path: 'papers', name: 'papers', component: () => import('@/views/Papers.vue'), meta: { title: '试卷管理' } },
       { path: 'strategies', name: 'strategies', component: () => import('@/views/Strategies.vue'), meta: { title: '组卷策略' } },
@@ -18,8 +17,6 @@ const routes: RouteRecordRaw[] = [
       { path: 'exam-plans', name: 'exam-plans', component: () => import('@/views/ExamPlans.vue'), meta: { title: '考试计划' } },
       { path: 'proctor', name: 'proctor', component: () => import('@/views/Proctor.vue'), meta: { title: '考试监控' } },
       { path: 'marking', name: 'marking', component: () => import('@/views/Marking.vue'), meta: { title: '考试阅卷' } },
-      { path: 'statistics', name: 'statistics', component: () => import('@/views/Statistics.vue'), meta: { title: '成绩统计' } },
-      { path: 'analysis', name: 'analysis', component: () => import('@/views/Analysis.vue'), meta: { title: '成绩分析' } },
       { path: 'users', name: 'users', component: () => import('@/views/Users.vue'), meta: { title: '用户管理' } },
       { path: 'roles', name: 'roles', component: () => import('@/views/Roles.vue'), meta: { title: '角色管理' } },
       { path: 'orgs', name: 'orgs', component: () => import('@/views/Organization.vue'), meta: { title: '组织机构' } },
@@ -55,7 +52,7 @@ router.beforeEach(async (to) => {
   // 仅开发环境：带 ?demo=1 以管理员、?demo=student 以学员自动登录，便于截图与演示
   if (import.meta.env.DEV && !auth.isLogin && to.query.demo) {
     const asStudent = to.query.demo === 'student'
-    await auth.login(asStudent ? 'student' : 'admin', '123456')
+    await auth.login(asStudent ? 'student' : 'admin', 'Mima3700%')
   }
 
   if (to.meta.public) {
@@ -77,7 +74,7 @@ router.beforeResolve(() => {
 
 router.afterEach((to) => {
   const title = to.meta.title as string | undefined
-  document.title = title ? `${title} · 学生考试系统` : '学生考试系统'
+  document.title = title ? `${title} · 考试系统` : '考试系统'
   // 稍微延迟收起，避免极快跳转时进度条闪烁
   window.setTimeout(() => (navState.pending = false), 220)
 })

@@ -1,0 +1,55 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', padding: 0, position: 'relative', overflow: 'hidden' }}>
+  <Text style={{ position: 'absolute', left: 80, top: 76, fontSize: 34, fontWeight: 'bold', color: '#17191E' }}>上会之前，先自己跑一遍</Text>
+  <Text style={{ position: 'absolute', left: 80, top: 132, fontSize: 14, color: '#8C919C', lineHeight: 1.8 }}>
+    冒烟脚本、判分引擎用例、空库全量迁移，每次发版前都重跑。
+  </Text>
+
+  <Box style={{ position: 'absolute', left: 80, top: 200, width: 1120, flexDirection: 'column' }}>
+    <Box style={{ height: 2, background: '#17191E' }} />
+
+    <Box style={{ flexDirection: 'row', paddingTop: 12, paddingBottom: 12 }}>
+      <Text style={{ width: 420, fontSize: 12, fontWeight: 'bold', color: '#17191E' }}>检查项</Text>
+      <Text style={{ width: 380, fontSize: 12, fontWeight: 'bold', color: '#17191E' }}>覆盖范围</Text>
+      <Text style={{ width: 300, fontSize: 12, fontWeight: 'bold', color: '#17191E' }}>结果</Text>
+    </Box>
+
+    <Box style={{ height: 1, background: '#17191E' }} />
+
+    <Box style={{ flexDirection: 'row', paddingTop: 15, paddingBottom: 15, borderBottom: '1px solid #EDEFF2' }}>
+      <Text style={{ width: 420, fontSize: 13, color: '#17191E' }}>冒烟脚本 M3–M14</Text>
+      <Text style={{ width: 380, fontSize: 13, color: '#4A4F5A' }}>10 组场景</Text>
+      <Text style={{ width: 300, fontSize: 13, color: '#4A4F5A' }}>全部通过</Text>
+    </Box>
+
+    <Box style={{ flexDirection: 'row', paddingTop: 15, paddingBottom: 15, borderBottom: '1px solid #EDEFF2' }}>
+      <Text style={{ width: 420, fontSize: 13, color: '#17191E' }}>判分引擎</Text>
+      <Text style={{ width: 380, fontSize: 13, color: '#4A4F5A' }}>11 条用例</Text>
+      <Text style={{ width: 300, fontSize: 13, color: '#4A4F5A' }}>全部通过</Text>
+    </Box>
+
+    <Box style={{ flexDirection: 'row', paddingTop: 15, paddingBottom: 15, borderBottom: '1px solid #EDEFF2' }}>
+      <Text style={{ width: 420, fontSize: 13, color: '#17191E' }}>空库全量迁移</Text>
+      <Text style={{ width: 380, fontSize: 13, color: '#4A4F5A' }}>V1–V14</Text>
+      <Text style={{ width: 300, fontSize: 13, color: '#4A4F5A' }}>14 个版本一次通过</Text>
+    </Box>
+
+    <Box style={{ flexDirection: 'row', paddingTop: 15, paddingBottom: 15, borderBottom: '1px solid #EDEFF2' }}>
+      <Text style={{ width: 420, fontSize: 13, color: '#17191E' }}>发版包完整性</Text>
+      <Text style={{ width: 380, fontSize: 13, color: '#4A4F5A' }}>219 个文件</Text>
+      <Text style={{ width: 300, fontSize: 13, color: '#4A4F5A' }}>SHA256 逐条一致</Text>
+    </Box>
+
+    <Box style={{ flexDirection: 'row', paddingTop: 15, paddingBottom: 15, borderBottom: '1px solid #17191E' }}>
+      <Text style={{ width: 420, fontSize: 13, color: '#17191E' }}>登录与权限</Text>
+      <Text style={{ width: 380, fontSize: 13, color: '#4A4F5A' }}>管理员 / 学员</Text>
+      <Text style={{ width: 300, fontSize: 13, color: '#4A4F5A' }}>通过</Text>
+    </Box>
+  </Box>
+
+  <Text style={{ position: 'absolute', left: 80, top: 520, width: 1120, fontSize: 12, color: '#8C919C', lineHeight: 1.85 }}>
+    脚本保留在仓库 scripts/ 目录下，改完代码可直接重跑，不需要另外准备测试环境。
+  </Text>
+
+  <Text style={{ position: 'absolute', left: 80, top: 668, fontSize: 12, color: '#B0B4BD' }}>质量</Text>
+  <Text style={{ position: 'absolute', right: 80, top: 668, fontSize: 12, color: '#B0B4BD' }}>11 / 12</Text>
+</Slide>

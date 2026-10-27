@@ -1,0 +1,59 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', padding: 0, position: 'relative', overflow: 'hidden' }}>
+  <Text style={{ position: 'absolute', left: 80, top: 76, fontSize: 34, fontWeight: 'bold', color: '#17191E' }}>管什么，不管什么</Text>
+  <Text style={{ position: 'absolute', left: 80, top: 132, fontSize: 14, color: '#8C919C', lineHeight: 1.8 }}>
+    四块能力边界清楚，实施时少来回确认。
+  </Text>
+
+  <Box style={{ position: 'absolute', left: 80, top: 190, width: 250, flexDirection: 'column' }}>
+    <Box style={{ height: 2, background: '#17191E' }} />
+    <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#17191E', marginTop: 16 }}>平台</Text>
+    <Text style={{ fontSize: 12, color: '#8C919C', marginTop: 6 }}>组织与账号</Text>
+    <Box style={{ height: 1, background: '#EDEFF2', marginTop: 18 }} />
+    <Text style={{ fontSize: 13, color: '#4A4F5A', marginTop: 14, lineHeight: 1.7 }}>组织机构树</Text>
+    <Text style={{ fontSize: 13, color: '#4A4F5A', marginTop: 8, lineHeight: 1.7 }}>用户与角色分配</Text>
+    <Text style={{ fontSize: 13, color: '#4A4F5A', marginTop: 8, lineHeight: 1.7 }}>菜单与按钮两级权限</Text>
+    <Text style={{ fontSize: 13, color: '#4A4F5A', marginTop: 8, lineHeight: 1.7 }}>字典与系统参数</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 358, top: 190, width: 250, flexDirection: 'column' }}>
+    <Box style={{ height: 2, background: '#17191E' }} />
+    <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#17191E', marginTop: 16 }}>内容</Text>
+    <Text style={{ fontSize: 12, color: '#8C919C', marginTop: 6 }}>题目资产</Text>
+    <Box style={{ height: 1, background: '#EDEFF2', marginTop: 18 }} />
+    <Text style={{ fontSize: 13, color: '#4A4F5A', marginTop: 14, lineHeight: 1.7 }}>大纲三级结构</Text>
+    <Text style={{ fontSize: 13, color: '#4A4F5A', marginTop: 8, lineHeight: 1.7 }}>题库挂靠大纲</Text>
+    <Text style={{ fontSize: 13, color: '#4A4F5A', marginTop: 8, lineHeight: 1.7 }}>六种题型录入与导入</Text>
+    <Text style={{ fontSize: 13, color: '#4A4F5A', marginTop: 8, lineHeight: 1.7 }}>策略组卷与配比</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 636, top: 190, width: 250, flexDirection: 'column' }}>
+    <Box style={{ height: 2, background: '#17191E' }} />
+    <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#17191E', marginTop: 16 }}>考试</Text>
+    <Text style={{ fontSize: 12, color: '#8C919C', marginTop: 6 }}>一场考试的全过程</Text>
+    <Box style={{ height: 1, background: '#EDEFF2', marginTop: 18 }} />
+    <Text style={{ fontSize: 13, color: '#4A4F5A', marginTop: 14, lineHeight: 1.7 }}>考试计划与排考</Text>
+    <Text style={{ fontSize: 13, color: '#4A4F5A', marginTop: 8, lineHeight: 1.7 }}>报名审核</Text>
+    <Text style={{ fontSize: 13, color: '#4A4F5A', marginTop: 8, lineHeight: 1.7 }}>在线答题与自动保存</Text>
+    <Text style={{ fontSize: 13, color: '#4A4F5A', marginTop: 8, lineHeight: 1.7 }}>实时监考与强制交卷</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 914, top: 190, width: 250, flexDirection: 'column' }}>
+    <Box style={{ height: 2, background: '#17191E' }} />
+    <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#17191E', marginTop: 16 }}>数据</Text>
+    <Text style={{ fontSize: 12, color: '#8C919C', marginTop: 6 }}>结果与反馈</Text>
+    <Box style={{ height: 1, background: '#EDEFF2', marginTop: 18 }} />
+    <Text style={{ fontSize: 13, color: '#4A4F5A', marginTop: 14, lineHeight: 1.7 }}>主观题人工评阅</Text>
+    <Text style={{ fontSize: 13, color: '#4A4F5A', marginTop: 8, lineHeight: 1.7 }}>成绩发布闸门</Text>
+    <Text style={{ fontSize: 13, color: '#4A4F5A', marginTop: 8, lineHeight: 1.7 }}>及格率与分数段</Text>
+    <Text style={{ fontSize: 13, color: '#4A4F5A', marginTop: 8, lineHeight: 1.7 }}>题目正确率</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 80, top: 518, width: 1084, height: 1, background: '#DCDEE3' }} />
+
+  <Text style={{ position: 'absolute', left: 80, top: 540, width: 1084, fontSize: 14, color: '#4A4F5A', lineHeight: 1.85 }}>
+    当前版本不包含视频监考、题库跨机构共享与移动端 App。这三项在需求清单里，但不在本期交付范围。
+  </Text>
+
+  <Text style={{ position: 'absolute', left: 80, top: 668, fontSize: 12, color: '#B0B4BD' }}>能力边界</Text>
+  <Text style={{ position: 'absolute', right: 80, top: 668, fontSize: 12, color: '#B0B4BD' }}>04 / 12</Text>
+</Slide>

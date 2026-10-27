@@ -2,7 +2,7 @@
   "name": "exam-sys",
   "private": true,
   "version": "0.1.0",
-  "description": "学生考试系统 · monorepo",
+  "description": "考试系统 · monorepo",
   "workspaces": [
     "apps/*",
     "packages/*"

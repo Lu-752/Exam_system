@@ -60,7 +60,6 @@
           <el-button v-else-if="row.attemptStatus === 'SUBMITTED'" link type="primary" size="small"
                      @click="viewResult(row)">查看成绩</el-button>
           <el-button link type="primary" size="small" @click="router.push(`/proctor?planId=${row.id}`)">监考</el-button>
-          <el-button link type="primary" size="small" @click="router.push(`/statistics?planId=${row.id}`)">成绩</el-button>
           <el-button v-if="!row.scorePublished" link type="warning" size="small" @click="publish(row)">发布成绩</el-button>
           <el-button v-else link size="small" @click="unpublish(row)">撤回发布</el-button>
         </template>

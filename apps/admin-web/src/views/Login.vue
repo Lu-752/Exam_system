@@ -10,26 +10,23 @@
             <path d="M20.7 10.1v4.6" />
           </svg>
         </span>
-        <span>学生考试系统</span>
+        <span>考试系统</span>
       </div>
 
       <div class="brand-copy">
         <h1>从命题到成绩，<br />一条链路跑完</h1>
-        <p>大纲 · 题库 · 组卷 · 考试 · 监考 · 阅卷 · 成绩分析</p>
+        <p>大纲 · 题库 · 组卷 · 考试 · 监考 · 阅卷</p>
         <ul>
           <li>服务端计时与答案自动保存，断线可续考</li>
           <li>考场实时监考：暂停、强制交卷、消息直达</li>
           <li>客观题即时判分，主观题多人阅卷</li>
         </ul>
       </div>
-
-      <div class="brand-foot">v0.1.0 · M0 骨架</div>
     </section>
 
     <section class="form-pane">
       <div class="form-box">
         <h2>账号登录</h2>
-        <p class="sub">请使用管理员账号登录后台</p>
 
         <el-form :model="form" @submit.prevent>
           <el-form-item>
@@ -52,8 +49,6 @@
             登 录
           </el-button>
         </el-form>
-
-        <p class="hint">管理员 admin / 123456 · 学员 student / 123456</p>
       </div>
     </section>
   </div>
@@ -69,7 +64,7 @@ const router = useRouter()
 const route = useRoute()
 const auth = useAuthStore()
 
-const form = reactive({ username: 'admin', password: '123456', captcha: '' })
+const form = reactive({ username: '', password: '', captcha: '' })
 const code = ref('')
 const loading = ref(false)
 const error = ref('')
@@ -148,12 +143,9 @@ async function submit() {
   content: ''; position: absolute; left: 0; top: 7px;
   width: 5px; height: 5px; border-radius: 50%; background: #8fb0ff;
 }
-.brand-foot { font-size: 12px; color: rgba(255, 255, 255, .45); }
-
 .form-pane { flex: 1; display: flex; align-items: center; justify-content: center; background: #fff; }
 .form-box { width: 340px; }
-.form-box h2 { margin: 0 0 6px; font-size: 21px; }
-.form-box .sub { margin: 0 0 26px; color: var(--text-3); font-size: 12.5px; }
+.form-box h2 { margin: 0 0 26px; font-size: 21px; }
 
 .captcha-row { display: flex; gap: 10px; width: 100%; }
 .captcha {
@@ -166,5 +158,4 @@ async function submit() {
 }
 .err { margin-bottom: 14px; }
 .submit { width: 100%; margin-top: 4px; }
-.hint { margin-top: 18px; font-size: 12px; color: var(--text-3); text-align: center; }
 </style>

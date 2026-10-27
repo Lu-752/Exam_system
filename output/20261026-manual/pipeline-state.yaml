@@ -1,0 +1,34 @@
+request_id: 20261026-manual
+entry_type: full_pipeline
+user_intent_length: 34
+output_docx_path: C:\Users\lxq\Desktop\exam-sys\docs\考试系统操作手册.docx
+output_docx_user_specified: true
+current_stage: 3
+stage_chain: [1, 2, 3]
+created_at: "2026-10-26T11:35:00+08:00"
+updated_at: "2026-10-26T11:38:00+08:00"
+stages:
+  stage_0:
+    status: completed
+    completed_at: "2026-10-26T11:35:00+08:00"
+    note: "新建文档 + 创作动词 → full_pipeline"
+  stage_1:
+    status: completed
+    completed_at: "2026-10-26T11:38:00+08:00"
+    output_path: stage1/final_draft.md
+    genre: general
+    expert_used: general-writer
+    route_tag: general_writing
+    critic_decision: null
+  stage_2:
+    status: completed
+    completed_at: "2026-10-26T11:41:00+08:00"
+    route: html
+    html_sub: template
+    output_path: stage2/formatted-考试系统操作手册.html
+    output_format: html
+    skills_invoked: [design-token, doc-typeset, html-review]
+  stage_3:
+    status: completed
+    completed_at: "2026-10-26T11:42:00+08:00"
+    output_path: C:////Users////lxq////Desktop////exam-sys////docs////考试系统操作手册.docx

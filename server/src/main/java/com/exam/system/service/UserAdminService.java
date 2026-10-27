@@ -22,7 +22,7 @@ import java.util.*;
 @RequiredArgsConstructor
 public class UserAdminService {
 
-    private static final String DEFAULT_PASSWORD = "123456";
+    private static final String DEFAULT_PASSWORD = com.exam.system.DefaultPassword.CURRENT;
 
     private final SysUserMapper userMapper;
     private final PasswordEncoder passwordEncoder;

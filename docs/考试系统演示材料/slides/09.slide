@@ -1,0 +1,37 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', padding: 0, position: 'relative', overflow: 'hidden' }}>
+  <Text style={{ position: 'absolute', left: 80, top: 76, fontSize: 34, fontWeight: 'bold', color: '#17191E' }}>考完之后，知道下一步教什么</Text>
+  <Text style={{ position: 'absolute', left: 80, top: 132, fontSize: 14, color: '#8C919C', lineHeight: 1.8 }}>
+    首页把考试、成绩与待办合成一屏，数据全部来自真实答卷。
+  </Text>
+
+  <Image src="assets/ui_dashboard.png" style={{ position: 'absolute', left: 80, top: 190, width: 700, height: 340, border: '1px solid #DCDEE3', objectFit: 'cover' }} />
+  <Text style={{ position: 'absolute', left: 80, top: 540, width: 700, fontSize: 12, color: '#8C919C', lineHeight: 1.7 }}>
+    首页概览：12 项指标 + 待办事项，待批阅与待审核都能一键进入。
+  </Text>
+
+  <Box style={{ position: 'absolute', left: 840, top: 190, width: 360, flexDirection: 'column' }}>
+    <Text style={{ fontSize: 34, color: '#17191E', fontFamily: 'Arial', lineHeight: 1.1 }}>26</Text>
+    <Text style={{ fontSize: 12, color: '#8C919C', marginTop: 8 }}>学员账号</Text>
+    <Box style={{ height: 1, background: '#EDEFF2', marginTop: 18 }} />
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 840, top: 300, width: 360, flexDirection: 'column' }}>
+    <Text style={{ fontSize: 34, color: '#17191E', fontFamily: 'Arial', lineHeight: 1.1 }}>13</Text>
+    <Text style={{ fontSize: 12, color: '#8C919C', marginTop: 8 }}>试题总数</Text>
+    <Box style={{ height: 1, background: '#EDEFF2', marginTop: 18 }} />
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 840, top: 410, width: 360, flexDirection: 'column' }}>
+    <Text style={{ fontSize: 34, color: '#1F3A5F', fontFamily: 'Arial', lineHeight: 1.1 }}>90.0</Text>
+    <Text style={{ fontSize: 12, color: '#8C919C', marginTop: 8 }}>本次考试平均分</Text>
+    <Box style={{ height: 1, background: '#EDEFF2', marginTop: 18 }} />
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 840, top: 520, width: 360, flexDirection: 'column' }}>
+    <Text style={{ fontSize: 34, color: '#17191E', fontFamily: 'Arial', lineHeight: 1.1 }}>100%</Text>
+    <Text style={{ fontSize: 12, color: '#8C919C', marginTop: 8 }}>及格率</Text>
+  </Box>
+
+  <Text style={{ position: 'absolute', left: 80, top: 668, fontSize: 12, color: '#B0B4BD' }}>数据</Text>
+  <Text style={{ position: 'absolute', right: 80, top: 668, fontSize: 12, color: '#B0B4BD' }}>09 / 12</Text>
+</Slide>

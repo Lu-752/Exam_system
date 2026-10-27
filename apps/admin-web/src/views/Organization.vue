@@ -83,12 +83,11 @@
             <el-input v-model="memberKeyword" placeholder="搜索姓名 / 学号 / 手机号" clearable size="small"
                       style="width: 210px" @keyup.enter="searchMembers" @clear="searchMembers" />
             <el-button size="small" @click="searchMembers">查询</el-button>
-            <el-button size="small" type="primary" plain @click="addMember">添加成员</el-button>
           </div>
         </div>
 
         <el-table v-loading="memberLoading" :data="members" border stripe size="default"
-                  empty-text="该组织下暂无成员" @row-dblclick="jumpMember">
+                  empty-text="该组织下暂无成员">
           <el-table-column prop="no" label="学号" width="130" />
           <el-table-column prop="name" label="姓名" width="110" />
           <el-table-column prop="gender" label="性别" width="70" align="center" />
@@ -105,7 +104,6 @@
         </el-table>
 
         <div class="pager">
-          <span class="pager-info">双击成员可跳到学员管理维护档案</span>
           <el-pagination v-model:current-page="memberPage" v-model:page-size="memberSize" :total="memberTotal"
                          :page-sizes="[10, 20, 50]" layout="sizes, prev, pager, next"
                          background small @current-change="loadMembers" @size-change="searchMembers" />
@@ -161,7 +159,6 @@
 
 <script setup lang="ts">
 import { nextTick, onMounted, reactive, ref } from 'vue'
-import { useRouter } from 'vue-router'
 import { ElMessage, ElMessageBox, type FormInstance, type FormRules } from 'element-plus'
 import type { ElTree } from 'element-plus'
 import {
@@ -169,7 +166,6 @@ import {
   type OrgMember, type OrgNode, type OrgPayload, type OrgStats
 } from '@/api/org'
 
-const router = useRouter()
 
 const tree = ref<OrgNode[]>([])
 const flat = ref<OrgNode[]>([])
@@ -275,15 +271,6 @@ async function loadMembers() {
 function searchMembers() {
   memberPage.value = 1
   loadMembers()
-}
-
-function jumpMember(row: OrgMember) {
-  router.push({ path: '/students', query: { keyword: row.no } })
-}
-
-function addMember() {
-  if (!current.value) return
-  router.push({ path: '/students', query: { orgId: String(current.value.id), new: '1' } })
 }
 
 function openCreate(parent: OrgNode | null) {

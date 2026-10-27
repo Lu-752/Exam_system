@@ -1,0 +1,31 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', padding: 0, position: 'relative', overflow: 'hidden' }}>
+  <Text style={{ position: 'absolute', left: 80, top: 76, fontSize: 34, fontWeight: 'bold', color: '#17191E' }}>学员端：交卷即出分</Text>
+  <Text style={{ position: 'absolute', left: 80, top: 132, fontSize: 14, color: '#8C919C', lineHeight: 1.8 }}>
+    客观题当场判分，主观题批完自动重算；错在哪一题、为什么错，一并给出。
+  </Text>
+
+  <Image src="assets/ui_fig_result.png" style={{ position: 'absolute', left: 380, top: 190, width: 520, height: 383, border: '1px solid #DCDEE3', objectFit: 'cover' }} />
+
+  <Box style={{ position: 'absolute', left: 80, top: 222, width: 252, flexDirection: 'column' }}>
+    <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#17191E' }}>逐题对照</Text>
+    <Text style={{ fontSize: 12, color: '#8C919C', lineHeight: 1.75, marginTop: 6 }}>每题给出我的答案、正确答案与解析，不用等老师讲评。</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 80, top: 356, width: 252, flexDirection: 'column' }}>
+    <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#17191E' }}>服务端计时</Text>
+    <Text style={{ fontSize: 12, color: '#8C919C', lineHeight: 1.75, marginTop: 6 }}>剩余时间以服务端为准，改本地时钟对不上账。</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 948, top: 222, width: 252, flexDirection: 'column' }}>
+    <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#17191E' }}>答案自动保存</Text>
+    <Text style={{ fontSize: 12, color: '#8C919C', lineHeight: 1.75, marginTop: 6 }}>每答一题即时落库，断电或掉线后回到原进度。</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 948, top: 356, width: 252, flexDirection: 'column' }}>
+    <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#17191E' }}>成绩受闸门控制</Text>
+    <Text style={{ fontSize: 12, color: '#8C919C', lineHeight: 1.75, marginTop: 6 }}>管理员未发布成绩时，学员端只显示已交卷，不显示分数。</Text>
+  </Box>
+
+  <Text style={{ position: 'absolute', left: 80, top: 668, fontSize: 12, color: '#B0B4BD' }}>学员端</Text>
+  <Text style={{ position: 'absolute', right: 80, top: 668, fontSize: 12, color: '#B0B4BD' }}>06 / 12</Text>
+</Slide>

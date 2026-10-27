@@ -1,0 +1,42 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', padding: 0, position: 'relative', overflow: 'hidden' }}>
+  <Text style={{ position: 'absolute', left: 80, top: 76, fontSize: 34, fontWeight: 'bold', color: '#17191E' }}>三道闸门，防的是流程漏洞</Text>
+  <Text style={{ position: 'absolute', left: 80, top: 132, fontSize: 14, color: '#8C919C', lineHeight: 1.8 }}>
+    报名、答题、发榜各设一道。人盯人不一定靠得住，规则可以。
+  </Text>
+
+  <Box style={{ position: 'absolute', left: 80, top: 192, width: 360, flexDirection: 'column' }}>
+    <Box style={{ height: 2, background: '#17191E' }} />
+    <Text style={{ fontSize: 12, color: '#8C919C', marginTop: 16 }}>第一道</Text>
+    <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#17191E', marginTop: 8 }}>报名审核</Text>
+    <Text style={{ fontSize: 13, color: '#4A4F5A', lineHeight: 1.75, marginTop: 12 }}>
+      管理员逐条审批。被拒的账号调用开考接口直接返回拒绝，改前端参数也绕不过去。
+    </Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 460, top: 192, width: 360, flexDirection: 'column' }}>
+    <Box style={{ height: 2, background: '#17191E' }} />
+    <Text style={{ fontSize: 12, color: '#8C919C', marginTop: 16 }}>第二道</Text>
+    <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#17191E', marginTop: 8 }}>切屏检测</Text>
+    <Text style={{ fontSize: 13, color: '#4A4F5A', lineHeight: 1.75, marginTop: 12 }}>
+      每次失焦都上报服务端累计。达到三次的答卷在监考页标红，交卷后仍可追溯。
+    </Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 840, top: 192, width: 360, flexDirection: 'column' }}>
+    <Box style={{ height: 2, background: '#17191E' }} />
+    <Text style={{ fontSize: 12, color: '#8C919C', marginTop: 16 }}>第三道</Text>
+    <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#17191E', marginTop: 8 }}>成绩发布</Text>
+    <Text style={{ fontSize: 13, color: '#4A4F5A', lineHeight: 1.75, marginTop: 12 }}>
+      新建考试计划默认不发布成绩。管理员确认后，学员才看得到分数与解析。
+    </Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 80, top: 518, width: 1120, height: 1, background: '#DCDEE3' }} />
+
+  <Text style={{ position: 'absolute', left: 80, top: 540, width: 1120, fontSize: 14, color: '#4A4F5A', lineHeight: 1.85 }}>
+    三道闸门的开关都在服务端。页面上藏起来只是不显示，接口层仍然会拦。
+  </Text>
+
+  <Text style={{ position: 'absolute', left: 80, top: 668, fontSize: 12, color: '#B0B4BD' }}>公平性</Text>
+  <Text style={{ position: 'absolute', right: 80, top: 668, fontSize: 12, color: '#B0B4BD' }}>08 / 12</Text>
+</Slide>

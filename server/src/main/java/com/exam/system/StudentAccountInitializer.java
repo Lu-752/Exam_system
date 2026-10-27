@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 /**
- * 演示学员账号（幂等）：student / 123456，只挂「学员中心」相关菜单。
+ * 演示学员账号（幂等）：student 账号使用系统默认密码，只挂「学员中心」相关菜单。
  * 绑定一条 sys_student 记录，考试答卷上的考生姓名即该学员姓名。
  */
 @Slf4j
@@ -29,7 +29,7 @@ import java.util.List;
 public class StudentAccountInitializer implements ApplicationRunner {
 
     private static final String USERNAME = "student";
-    private static final String RAW_PASSWORD = "123456";
+    private static final String RAW_PASSWORD = DefaultPassword.CURRENT;
     /** 学员可见的菜单路径 */
     private static final List<String> STUDENT_PATHS = List.of(
             "/student/exam-center", "/student/signup", "/student/practice", "/student/profile");
@@ -63,7 +63,7 @@ public class StudentAccountInitializer implements ApplicationRunner {
             user.setCreatedAt(LocalDateTime.now());
             user.setUpdatedAt(LocalDateTime.now());
             userMapper.insert(user);
-            log.info("seed student account: {}/{} ({})", USERNAME, RAW_PASSWORD, name);
+            log.info("seed student account: {} ({})", USERNAME, name);
         }
 
         bindRole(user.getId(), roleId);

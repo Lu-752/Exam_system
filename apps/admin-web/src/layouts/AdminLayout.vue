@@ -10,7 +10,7 @@
             <path d="M20.7 10.1v4.6" />
           </svg>
         </span>
-        <span>学生考试系统</span>
+        <span>考试系统</span>
       </div>
 
       <div class="topbar-right">
@@ -125,14 +125,6 @@ const MENUS: MenuGroup[] = [
     ]
   },
   {
-    key: 'learn', label: '学习中心', icon: 'chart',
-    items: [
-      { label: '学员管理', to: '/students' },
-      { label: '成绩统计', to: '/statistics' },
-      { label: '成绩分析', to: '/analysis' }
-    ]
-  },
-  {
     key: 'system', label: '系统管理', icon: 'setting',
     items: [
       { label: '用户管理', to: '/users' },
@@ -147,7 +139,6 @@ const MENUS: MenuGroup[] = [
 /** 后端菜单路径 → 前端已实现路由；未实现的菜单项保持置灰 */
 const ROUTE_MAP: Record<string, string> = {
   '/dashboard': '/dashboard',
-  '/admin/students': '/students',
   '/admin/question-banks': '/questions',
   '/admin/questions': '/questions',
   '/admin/papers': '/papers',
@@ -156,8 +147,6 @@ const ROUTE_MAP: Record<string, string> = {
   '/admin/exam-plans': '/exam-plans',
   '/admin/monitor': '/proctor',
   '/admin/marking': '/marking',
-  '/admin/scores': '/statistics',
-  '/admin/analysis': '/analysis',
   '/admin/signups': '/signup-review',
   '/system/users': '/users',
   '/system/roles': '/roles',

@@ -1,0 +1,59 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', padding: 0, position: 'relative', overflow: 'hidden' }}>
+  <Text style={{ position: 'absolute', left: 80, top: 76, fontSize: 34, fontWeight: 'bold', color: '#17191E' }}>七个环节，同一份数据</Text>
+  <Text style={{ position: 'absolute', left: 80, top: 132, fontSize: 14, color: '#8C919C', lineHeight: 1.8 }}>
+    不是一个一个工具拼起来，而是一个库里同一份数据在往下走。
+  </Text>
+
+  <Box style={{ position: 'absolute', left: 80, top: 322, width: 1050, height: 1, background: '#DCDEE3' }} />
+
+  <Box style={{ position: 'absolute', left: 80, top: 317, width: 130, flexDirection: 'column' }}>
+    <Box style={{ width: 10, height: 10, borderRadius: 5, background: '#1F3A5F' }} />
+    <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#17191E', marginTop: 14 }}>命题</Text>
+    <Text style={{ fontSize: 12, color: '#8C919C', marginTop: 6, lineHeight: 1.6 }}>大纲 · 题库 · 试题</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 240, top: 317, width: 130, flexDirection: 'column' }}>
+    <Box style={{ width: 10, height: 10, borderRadius: 5, background: '#4A4F5A' }} />
+    <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#17191E', marginTop: 14 }}>组卷</Text>
+    <Text style={{ fontSize: 12, color: '#8C919C', marginTop: 6, lineHeight: 1.6 }}>手动选题或按策略</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 400, top: 317, width: 130, flexDirection: 'column' }}>
+    <Box style={{ width: 10, height: 10, borderRadius: 5, background: '#4A4F5A' }} />
+    <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#17191E', marginTop: 14 }}>排考</Text>
+    <Text style={{ fontSize: 12, color: '#8C919C', marginTop: 6, lineHeight: 1.6 }}>时间 · 范围 · 试卷</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 560, top: 317, width: 130, flexDirection: 'column' }}>
+    <Box style={{ width: 10, height: 10, borderRadius: 5, background: '#4A4F5A' }} />
+    <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#17191E', marginTop: 14 }}>报名</Text>
+    <Text style={{ fontSize: 12, color: '#8C919C', marginTop: 6, lineHeight: 1.6 }}>审核通过才准入</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 720, top: 317, width: 130, flexDirection: 'column' }}>
+    <Box style={{ width: 10, height: 10, borderRadius: 5, background: '#4A4F5A' }} />
+    <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#17191E', marginTop: 14 }}>考试</Text>
+    <Text style={{ fontSize: 12, color: '#8C919C', marginTop: 6, lineHeight: 1.6 }}>服务端计时与保存</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 880, top: 317, width: 130, flexDirection: 'column' }}>
+    <Box style={{ width: 10, height: 10, borderRadius: 5, background: '#4A4F5A' }} />
+    <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#17191E', marginTop: 14 }}>阅卷</Text>
+    <Text style={{ fontSize: 12, color: '#8C919C', marginTop: 6, lineHeight: 1.6 }}>客观自动，主观人工</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 1040, top: 317, width: 130, flexDirection: 'column' }}>
+    <Box style={{ width: 10, height: 10, borderRadius: 5, background: '#4A4F5A' }} />
+    <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#17191E', marginTop: 14 }}>成绩</Text>
+    <Text style={{ fontSize: 12, color: '#8C919C', marginTop: 6, lineHeight: 1.6 }}>发布 · 统计 · 分析</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 80, top: 540, width: 1050, height: 1, background: '#EDEFF2' }} />
+
+  <Text style={{ position: 'absolute', left: 80, top: 558, width: 900, fontSize: 14, color: '#4A4F5A', lineHeight: 1.85 }}>
+    报名审核、切屏监测、成绩发布三道闸门串在这条链上。任何一个环节绕过去，后面的数据都不可信。
+  </Text>
+
+  <Text style={{ position: 'absolute', left: 80, top: 668, fontSize: 12, color: '#B0B4BD' }}>链路</Text>
+  <Text style={{ position: 'absolute', right: 80, top: 668, fontSize: 12, color: '#B0B4BD' }}>03 / 12</Text>
+</Slide>

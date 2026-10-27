@@ -1,0 +1,20 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', padding: 0, position: 'relative', overflow: 'hidden' }}>
+  <Box style={{ position: 'absolute', left: 0, top: 0, width: 12, height: 720, background: '#1F3A5F' }} />
+
+  <Text style={{ position: 'absolute', left: 80, top: 240, width: 1000, fontSize: 40, fontWeight: 'bold', color: '#17191E', lineHeight: 1.35 }}>
+    下一步，用你们自己的题库跑一场
+  </Text>
+
+  <Text style={{ position: 'absolute', left: 80, top: 344, width: 900, fontSize: 15, color: '#4A4F5A', lineHeight: 1.9 }}>
+    从一份 20 题的样卷开始，走完报名、考试、阅卷、发榜全程，大约半天。
+  </Text>
+
+  <Box style={{ position: 'absolute', left: 80, top: 412, width: 1050, height: 1, background: '#DCDEE3' }} />
+
+  <Text style={{ position: 'absolute', left: 80, top: 434, fontSize: 13, color: '#8C919C' }}>实施支持　联系人 / 电话 / 微信（待补）</Text>
+  <Text style={{ position: 'absolute', left: 80, top: 462, fontSize: 13, color: '#8C919C' }}>文档　操作手册 · 演示材料 · 安装与操作说明</Text>
+
+  <Text style={{ position: 'absolute', left: 80, top: 596, fontSize: 13, color: '#17191E' }}>考试系统</Text>
+  <Text style={{ position: 'absolute', left: 168, top: 596, fontSize: 13, color: '#8C919C' }}>V0.1.0</Text>
+  <Text style={{ position: 'absolute', right: 80, top: 596, fontSize: 13, color: '#B0B4BD' }}>12 / 12</Text>
+</Slide>

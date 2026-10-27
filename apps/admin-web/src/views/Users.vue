@@ -54,7 +54,7 @@
         <el-input v-model="form.name" placeholder="真实姓名" />
       </el-form-item>
       <el-form-item label="初始密码">
-        <el-input v-model="form.password" placeholder="留空则默认 123456" />
+        <el-input v-model="form.password" type="password" show-password autocomplete="new-password" placeholder="留空则使用系统默认密码" />
       </el-form-item>
       <el-form-item label="手机号">
         <el-input v-model="form.phone" />
@@ -165,13 +165,13 @@ async function saveRoles() {
 
 async function resetPwd(row: UserRow) {
   try {
-    await ElMessageBox.confirm(`将「${row.name}」的密码重置为 123456？`, '重置密码', { type: 'warning' })
+    await ElMessageBox.confirm(`将「${row.name}」的密码重置为系统默认密码？`, '重置密码', { type: 'warning' })
   } catch {
     return
   }
   try {
     await resetUserPassword(row.id)
-    ElMessage.success('已重置为 123456')
+    ElMessage.success('已重置为系统默认密码')
   } catch (e) {
     ElMessage.error((e as Error).message)
   }

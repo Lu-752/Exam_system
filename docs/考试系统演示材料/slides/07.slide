@@ -1,0 +1,33 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', padding: 0, position: 'relative', overflow: 'hidden' }}>
+  <Text style={{ position: 'absolute', left: 80, top: 76, fontSize: 34, fontWeight: 'bold', color: '#17191E' }}>监考：一个人看几十个人</Text>
+  <Text style={{ position: 'absolute', left: 80, top: 132, fontSize: 14, color: '#8C919C', lineHeight: 1.8 }}>
+    10 秒一轮刷新，切屏次数按人累计；到阈值自动标红，不用盯着猜。
+  </Text>
+
+  <Image src="assets/ui_fig_proctor.png" style={{ position: 'absolute', left: 80, top: 190, width: 1120, height: 270, border: '1px solid #DCDEE3', objectFit: 'cover' }} />
+
+  <Text style={{ position: 'absolute', left: 80, top: 472, width: 1120, fontSize: 12, color: '#8C919C' }}>
+    考试监控：在考人数、已交卷、平均分、切屏异常数集中在顶部一行。
+  </Text>
+
+  <Box style={{ position: 'absolute', left: 80, top: 512, width: 360, flexDirection: 'column' }}>
+    <Box style={{ height: 1, background: '#DCDEE3' }} />
+    <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#17191E', marginTop: 14 }}>实时进度</Text>
+    <Text style={{ fontSize: 12, color: '#8C919C', lineHeight: 1.75, marginTop: 6 }}>已答多少题、还剩多少时间，一屏看完，不用挨个问。</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 460, top: 512, width: 360, flexDirection: 'column' }}>
+    <Box style={{ height: 1, background: '#DCDEE3' }} />
+    <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#17191E', marginTop: 14 }}>异常标记</Text>
+    <Text style={{ fontSize: 12, color: '#8C919C', lineHeight: 1.75, marginTop: 6 }}>切屏与窗口失焦按人累计，超过阈值自动标红并留痕。</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 840, top: 512, width: 360, flexDirection: 'column' }}>
+    <Box style={{ height: 1, background: '#DCDEE3' }} />
+    <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#17191E', marginTop: 14 }}>强制交卷</Text>
+    <Text style={{ fontSize: 12, color: '#8C919C', lineHeight: 1.75, marginTop: 6 }}>对卡死或明显异常的答卷直接收卷，已答内容照常进入阅卷。</Text>
+  </Box>
+
+  <Text style={{ position: 'absolute', left: 80, top: 668, fontSize: 12, color: '#B0B4BD' }}>监考</Text>
+  <Text style={{ position: 'absolute', right: 80, top: 668, fontSize: 12, color: '#B0B4BD' }}>07 / 12</Text>
+</Slide>

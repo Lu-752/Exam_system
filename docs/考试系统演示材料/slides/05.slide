@@ -1,0 +1,29 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', padding: 0, position: 'relative', overflow: 'hidden' }}>
+  <Text style={{ position: 'absolute', left: 80, top: 76, fontSize: 34, fontWeight: 'bold', color: '#17191E' }}>命题：录一次，出卷不用再抄</Text>
+  <Text style={{ position: 'absolute', left: 80, top: 132, fontSize: 14, color: '#8C919C', lineHeight: 1.8 }}>
+    大纲挂题库，题库装试题，组卷从库里取——题目只维护一份。
+  </Text>
+
+  <Box style={{ position: 'absolute', left: 80, top: 196, width: 400, borderTop: '1px solid #DCDEE3', paddingTop: 16, flexDirection: 'column' }}>
+    <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#17191E' }}>六种题型</Text>
+    <Text style={{ fontSize: 13, color: '#4A4F5A', lineHeight: 1.7, marginTop: 6 }}>单选、多选、判断、填空、简答，以及带子题的材料题。</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 80, top: 302, width: 400, borderTop: '1px solid #DCDEE3', paddingTop: 16, flexDirection: 'column' }}>
+    <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#17191E' }}>大纲兜住层级</Text>
+    <Text style={{ fontSize: 13, color: '#4A4F5A', lineHeight: 1.7, marginTop: 6 }}>题库必须挂在大纲下；被引用的题库删不掉，避免断链。</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 80, top: 408, width: 400, borderTop: '1px solid #DCDEE3', paddingTop: 16, flexDirection: 'column' }}>
+    <Text style={{ fontSize: 17, fontWeight: 'bold', color: '#17191E' }}>策略出卷</Text>
+    <Text style={{ fontSize: 13, color: '#4A4F5A', lineHeight: 1.7, marginTop: 6 }}>设定题型配比即出卷；题量不够直接报缺口，不生成残缺卷。</Text>
+  </Box>
+
+  <Image src="assets/ui_questions.png" style={{ position: 'absolute', left: 560, top: 186, width: 620, height: 301, border: '1px solid #DCDEE3', objectFit: 'cover' }} />
+  <Text style={{ position: 'absolute', left: 560, top: 500, width: 620, fontSize: 12, color: '#8C919C', lineHeight: 1.7 }}>
+    题库与试题：同一个库里 13 道题按题型分列，答案与解析随题保存。
+  </Text>
+
+  <Text style={{ position: 'absolute', left: 80, top: 668, fontSize: 12, color: '#B0B4BD' }}>命题与组卷</Text>
+  <Text style={{ position: 'absolute', right: 80, top: 668, fontSize: 12, color: '#B0B4BD' }}>05 / 12</Text>
+</Slide>

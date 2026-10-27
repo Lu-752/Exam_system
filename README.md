@@ -1,4 +1,4 @@
-# 学生考试系统
+# 考试系统
 
 在线考试全流程系统：大纲 → 题库 → 组卷 → 考试计划 → 在线考试 → 实时监考 → 阅卷 → 成绩分析。
 
@@ -45,8 +45,8 @@ scripts\backend.cmd run
 ```
 
 - 管理端：http://localhost:5173/#/login
-  - 管理员：`admin / 123456`（全部后台）
-  - 学员：`student / 123456`（仅考试中心，可在线答题、看成绩）
+  - 管理员：`admin / Mima3700%`（全部后台）
+  - 学员：`student / Mima3700%`（仅考试中心，可在线答题、看成绩）
 - 后端健康检查：http://localhost:8080/actuator/health
 - H2 控制台（dev profile）：http://localhost:8080/h2-console （JDBC URL 见 `application.yml`）
 - 全链路冒烟（需后端已启动，建议空库按序执行）：

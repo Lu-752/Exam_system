@@ -55,7 +55,7 @@ public class DataInitializer implements ApplicationRunner {
 
         SysUser admin = new SysUser();
         admin.setUsername("admin");
-        admin.setPasswordHash(passwordEncoder.encode("123456"));
+        admin.setPasswordHash(passwordEncoder.encode(DefaultPassword.CURRENT));
         admin.setName("管理员");
         admin.setStatus("ACTIVE");
         admin.setCreatedAt(LocalDateTime.now());
@@ -64,7 +64,7 @@ public class DataInitializer implements ApplicationRunner {
 
         jdbc.update("INSERT INTO sys_user_role (user_id, role_id) VALUES (?, ?)", admin.getId(), roleId);
 
-        log.info("seed done: admin/123456, menus={}", menuIds.size());
+        log.info("seed done: admin (default password), menus={}", menuIds.size());
     }
 
     private List<Long> seedMenus() {
@@ -92,11 +92,9 @@ public class DataInitializer implements ApplicationRunner {
         ids.add(insertMenu(exam, "交卷记录", "/admin/records", null, "record:view", "MENU", 29));
         ids.add(insertMenu(exam, "考试阅卷", "/admin/marking", null, "marking:view", "MENU", 30));
 
-        Long learn = insertMenu(null, "学习中心", null, "chart", null, "DIR", 40);
-        ids.add(learn);
-        ids.add(insertMenu(learn, "学员管理", "/admin/students", null, "student:view", "MENU", 41));
-        ids.add(insertMenu(learn, "成绩统计", "/admin/scores", null, "score:view", "MENU", 42));
-        ids.add(insertMenu(learn, "成绩分析", "/admin/analysis", null, "analysis:view", "MENU", 43));
+        // 按钮级权限：强制交卷 + 发布成绩（考试计划发布成绩，M7 闸门，与学习中心无关，必须保留）
+        ids.add(insertMenu(exam, "强制交卷", null, null, "proctor:force", "BUTTON", 31));
+        ids.add(insertMenu(exam, "发布成绩", null, null, "score:publish", "BUTTON", 32));
 
         Long system = insertMenu(null, "系统管理", null, "setting", null, "DIR", 50);
         ids.add(system);
@@ -105,10 +103,6 @@ public class DataInitializer implements ApplicationRunner {
         ids.add(insertMenu(system, "组织机构", "/system/orgs", null, "org:view", "MENU", 53));
         ids.add(insertMenu(system, "字典管理", "/system/dicts", null, "dict:view", "MENU", 54));
         ids.add(insertMenu(system, "系统参数", "/system/params", null, "param:view", "MENU", 55));
-
-        // 按钮级权限示例：成绩发布 / 强制交卷
-        ids.add(insertMenu(learn, "发布成绩", null, null, "score:publish", "BUTTON", 44));
-        ids.add(insertMenu(exam, "强制交卷", null, null, "proctor:force", "BUTTON", 31));
 
         return ids;
     }

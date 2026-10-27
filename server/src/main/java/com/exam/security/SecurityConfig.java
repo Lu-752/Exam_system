@@ -41,7 +41,8 @@ public class SecurityConfig {
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .headers(h -> h.frameOptions(f -> f.sameOrigin()))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/v1/auth/login", "/actuator/health", "/h2-console/**").permitAll()
+                        .requestMatchers("/", "/index.html", "/assets/**", "/favicon.ico",
+                                "/api/v1/auth/login", "/actuator/health", "/h2-console/**").permitAll()
                         .anyRequest().authenticated())
                 .exceptionHandling(eh -> eh
                         .authenticationEntryPoint((req, res, e) -> write(res, HttpStatus.UNAUTHORIZED, 401, "未登录或登录已过期"))

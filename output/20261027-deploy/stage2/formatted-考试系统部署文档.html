@@ -1,0 +1,277 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"/><title>考试系统 部署文档</title><style>
+body { font-family: SimSun; font-size: 10.5pt; color: #1F2329; line-height: 1.75; }
+p { margin: 0 0 7pt; text-align: justify; }
+strong { font-weight: bold; }
+
+h2.chap { font-family: Microsoft YaHei; font-size: 17pt; font-weight: bold; color: #1F2329;
+          margin: 0 0 14pt; padding-bottom: 7pt; border-bottom: 0.75pt solid #9AA0AC; }
+.pb { page-break-before: always; }
+h3 { font-family: Microsoft YaHei; font-size: 12pt; font-weight: bold; color: #1F2329;
+     margin: 16pt 0 6pt; }
+h4 { font-size: 10.5pt; font-weight: bold; color: #1F2329; margin: 10pt 0 4pt; }
+
+ul, ol { margin: 0 0 8pt; padding-left: 20pt; }
+li { margin-bottom: 3pt; line-height: 1.75; }
+p.stepno { margin-top: 0; margin-bottom: 3pt; margin-left: 20pt; text-indent: -20pt; line-height: 1.75; }
+
+code { font-family: Consolas; font-size: 9.5pt; color: #1F2329; }
+
+table.grid { width: 100%; border-collapse: collapse; margin: 4pt 0 12pt; }
+table.grid th { font-family: Microsoft YaHei; font-size: 9.5pt; font-weight: bold; color: #1F2329;
+                text-align: left; padding: 5pt 6pt;
+                border-top: 1pt solid #1F2329; border-bottom: 0.75pt solid #1F2329; }
+table.grid td { font-size: 9.5pt; color: #1F2329; padding: 5pt 6pt; vertical-align: top; text-align: left;
+                border-bottom: 0.5pt solid #E4E6EA; }
+table.grid tr.last td { border-bottom: 1pt solid #1F2329; }
+
+table.codebox { width: 100%; border-collapse: collapse; margin: 5pt 0 10pt; }
+table.codebox td { text-align: left; background-color: #F6F7F9; border: 0.5pt solid #DCDEE3; padding: 8pt; }
+pre { text-align: left; font-family: Consolas; font-size: 8.5pt; margin: 0; line-height: 1.55; color: #1F2329; }
+
+p.note { border-left: 2.5pt solid #B0B4BD; padding-left: 9pt; margin: 8pt 0 10pt;
+         font-size: 9.5pt; color: #4A4F5A; }
+
+div.fig { margin: 10pt 0 12pt; }
+div.fig img { width: 400pt; }
+p.figcap { font-size: 9pt; color: #6B7280; text-align: center; margin: 4pt 0 0; }
+
+.cover { padding-top: 150pt; }
+.cv-top { font-family: Microsoft YaHei; font-size: 9pt; color: #6B7280; letter-spacing: 1pt;
+          text-align: center; margin-bottom: 60pt; }
+.cv-title { font-family: Microsoft YaHei; font-size: 26pt; font-weight: bold; color: #1F2329;
+            text-align: center; letter-spacing: 2pt; }
+.cv-sub { font-size: 11pt; color: #6B7280; text-align: center; margin-top: 14pt; letter-spacing: 1pt; }
+.cv-meta { font-size: 10pt; color: #4A4F5A; text-align: center; margin-top: 120pt; line-height: 2.1; }
+
+p.toc-title { font-family: Microsoft YaHei; font-size: 17pt; font-weight: bold; color: #1F2329;
+              margin: 0 0 16pt; padding-bottom: 7pt; border-bottom: 0.75pt solid #9AA0AC; }
+nav.doc-toc li { font-size: 10.5pt; margin-bottom: 4pt; }
+nav.doc-toc a { color: #1F2329; }
+
+@page { @top-left { content: "考试系统部署文档　V0.1.0"; }
+        @bottom-center { content: "第 " counter(page) " 页 / 共 " counter(pages) " 页"; } }
+@page cover { @top-left { content: none; } @bottom-center { content: none; } }
+section[role="cover"] { page: cover; }
+</style></head><body>
+<section role="cover">
+  <div class="cover">
+    <p class="cv-top">文档编号 EXAM-DP-001　　密级 内部</p>
+    <p class="cv-title">考试系统 部署文档</p>
+    <p class="cv-sub">环境准备 · 四种部署方式 · 验收 · 运维</p>
+    <p class="cv-meta">版本　V0.1.0<br/>适用对象　实施工程师 / 运维人员<br/>发布日期　2026 年 10 月</p>
+  </div>
+</section>
+<section role="body" data-page-restart="1"><nav class="doc-toc"><p class="toc-title">目录</p><ol><li><a href="#s1">文档说明</a><ol><li><a href="#s1-1">编写目的</a></li><li><a href="#s1-2">与其它文档的分工</a></li><li><a href="#s1-3">术语</a></li></ol></li><li><a href="#s2">部署前准备</a><ol><li><a href="#s2-1">硬件与操作系统</a></li><li><a href="#s2-2">软件依赖</a></li><li><a href="#s2-3">网络与端口</a></li><li><a href="#s2-4">部署前信息收集</a></li><li><a href="#s2-5">部署检查表</a></li></ol></li><li><a href="#s3">发行包说明</a><ol><li><a href="#s3-1">包结构</a></li><li><a href="#s3-2">完整性校验</a></li><li><a href="#s3-3">读 BUILD-INFO.txt</a></li><li><a href="#s3-4">版本与体积参考</a></li></ol></li><li><a href="#s4">部署方式</a><ol><li><a href="#s4-1">先选方式</a></li><li><a href="#s4-2">方式一 · Windows 单机 + 内置库</a></li><li><a href="#s4-3">方式二 · Windows 连接已有 PostgreSQL</a></li><li><a href="#s4-4">方式三 · Windows 自动安装 PostgreSQL</a></li><li><a href="#s4-5">方式四 · Linux 服务器</a></li><li><a href="#s4-6">修改端口</a></li></ol></li><li><a href="#s5">首次启动与验收</a><ol><li><a href="#s5-1">启动成功的标志</a></li><li><a href="#s5-2">数据库初始化说明</a></li><li><a href="#s5-3">验收清单</a></li><li><a href="#s5-4">交付前必做</a></li></ol></li><li><a href="#s6">日常运维</a><ol><li><a href="#s6-1">启停与日志</a></li><li><a href="#s6-2">备份与恢复</a></li><li><a href="#s6-3">升级与回滚</a></li><li><a href="#s6-4">迁移到另一台机器</a></li><li><a href="#s6-5">健康检查与监控</a></li></ol></li><li><a href="#s7">安全与加固</a><ol><li><a href="#s7-1">必做项</a></li><li><a href="#s7-2">Nginx 反向代理</a></li><li><a href="#s7-3">已知限制</a></li></ol></li><li><a href="#s8">故障排查</a><li><a href="#s9">附录</a><ol><li><a href="#s9-1">启动参数速查</a></li><li><a href="#s9-2">环境变量速查</a></li><li><a href="#s9-3">目录与文件清单</a></li><li><a href="#s9-4">常用命令速查</a></li><li><a href="#s9-5">交付签署</a></li></ol></li></ol></nav><h2 class="chap pb" id="s1">文档说明</h2>
+<h3 id="s1-1">编写目的</h3>
+<p>本文解决一件事：<strong>把考试系统装到目标机器上，并让它稳定跑起来</strong>。</p>
+<p>内容包括环境准备、四种部署方式、首次验收、日常启停与备份、升级回滚、安全加固和故障排查。</p>
+<p>不涉及功能怎么用——那部分见《考试系统操作手册》（19 页）与《考试系统演示材料》（16 页）。</p>
+<h3 id="s1-2">与其它文档的分工</h3>
+<table class="grid"><thead><tr><th style="width:34%">文档</th><th style="width:32%">回答什么问题</th><th style="width:34%">读者</th></tr></thead><tbody><tr><td>本文档</td><td>怎么装、怎么启停、怎么备份升级</td><td>实施 / 运维</td></tr><tr><td>考试系统操作手册</td><td>每个功能怎么点、有哪些业务规则</td><td>管理员 / 学员 / 实施</td></tr><tr><td>考试系统演示材料</td><td>一条主线演示十三个操作动作</td><td>汇报 / 培训</td></tr><tr class="last"><td>发行包 README.txt</td><td>三步上手，应急时看</td><td>所有人</td></tr></tbody></table>
+<h3 id="s1-3">术语</h3>
+<table class="grid"><thead><tr><th style="width:30%">术语</th><th style="width:70%">含义</th></tr></thead><tbody><tr><td>发行包</td><td><code>release.zip</code>，含 jar、Java 运行时、启停脚本、校验清单</td></tr><tr><td>运行时</td><td>包内 <code>runtime/</code>，用 jlink 从 JDK 21 裁剪，目标机无需另装 Java</td></tr><tr><td>dev / pg</td><td>两个 Spring Profile：dev 用内置 H2，pg 连 PostgreSQL</td></tr><tr><td>Flyway</td><td>数据库版本管理，启动时自动执行 <code>db/migration/V1~V15</code></td></tr><tr class="last"><td>演示数据</td><td>首次启动自动写入的题库、试卷、考试计划与管理员账号</td></tr></tbody></table>
+<h2 class="chap pb" id="s2">部署前准备</h2>
+<h3 id="s2-1">硬件与操作系统</h3>
+<table class="grid"><thead><tr><th style="width:16%">项</th><th style="width:20%">最低</th><th style="width:22%">建议</th><th style="width:42%">说明</th></tr></thead><tbody><tr><td>CPU</td><td>2 核</td><td>4 核</td><td>单体应用，主要吃并发请求</td></tr><tr><td>内存</td><td>1 GB</td><td>2 GB 起</td><td>JVM 堆可通过 <code>-Xmx</code> 限制；人机对话场景 1 GB 足够</td></tr><tr><td>磁盘</td><td>1 GB 空闲</td><td>5 GB 起</td><td>发行包解压约 90 MB，其余留给数据库与日志</td></tr><tr><td>操作系统</td><td>Windows 10 / Server 2016</td><td>Windows Server 2019+ 或 Linux</td><td>包内运行时为 <strong>Windows x64</strong>；Linux 需自备 JDK 21</td></tr><tr class="last"><td>浏览器</td><td>Chrome / Edge 90+</td><td>同左</td><td>前端为 SPA，不支持 IE</td></tr></tbody></table>
+<h3 id="s2-2">软件依赖</h3>
+<table class="grid"><thead><tr><th style="width:20%">组件</th><th style="width:40%">是否需要安装</th><th style="width:40%">说明</th></tr></thead><tbody><tr><td>Java</td><td><strong>不需要</strong>（Windows）</td><td>包内 <code>runtime/</code> 已含 Java 21；Linux 需系统 JDK 21+</td></tr><tr><td>数据库</td><td>视方式而定</td><td>方式一无需；方式二/三/四需要 PostgreSQL</td></tr><tr><td>PostgreSQL</td><td>方式二/四需要</td><td>交付验证版本 PostgreSQL 16；更低版本未验证</td></tr><tr class="last"><td>Nginx</td><td>可选</td><td>需要域名、HTTPS 或统一入口时使用，见第 7 章</td></tr></tbody></table>
+<h3 id="s2-3">网络与端口</h3>
+<table class="grid"><thead><tr><th style="width:20%">端口</th><th style="width:40%">用途</th><th style="width:40%">开放范围</th></tr></thead><tbody><tr><td>8080</td><td>应用 HTTP 端口（默认，可改）</td><td>对使用者网段开放；或用 Nginx 反代后只对本机开放</td></tr><tr><td>5432</td><td>PostgreSQL</td><td>仅应用服务器可访问；不要对终端用户网段开放</td></tr><tr class="last"><td>22</td><td>SSH（Linux 运维）</td><td>运维网段</td></tr></tbody></table>
+<p class="note">若使用域名 + HTTPS，对外只开放 443，8080 收到反代后面不直接暴露。</p>
+<h3 id="s2-4">部署前信息收集</h3>
+<p>交付前先向客户确认并填好下表，部署时直接照抄，避免现场反复询问。</p>
+<table class="grid"><thead><tr><th style="width:20%">项</th><th style="width:40%">值</th><th style="width:40%">备注</th></tr></thead><tbody><tr><td>服务器 IP / 主机名</td><td></td><td></td></tr><tr><td>操作系统与版本</td><td></td><td>决定用哪套脚本</td></tr><tr><td>计划使用的端口</td><td>8080</td><td>被占用则换 9090 等</td></tr><tr><td>数据库方式</td><td>内置 / 已有 PG / 自动装 PG</td><td>见 4.1 选择表</td></tr><tr><td>数据库地址与库名</td><td></td><td>方式二/四必填</td></tr><tr><td>数据库账号与密码</td><td></td><td>建议专用账号，不用 postgres 超级用户</td></tr><tr><td>访问入口</td><td><code>http://IP:8080</code> 或域名</td><td></td></tr><tr><td>是否需要 HTTPS</td><td>是 / 否</td><td>需要则准备证书</td></tr><tr class="last"><td>数据保留与备份位置</td><td></td><td>与业务方约定</td></tr></tbody></table>
+<h3 id="s2-5">部署检查表</h3>
+<p>按顺序勾完再开始，可省掉大部分返工。</p>
+<ul><li>目标机磁盘剩余 ≥ 1 GB，且解压路径不含空格与中文</li><li>目标机时间与时区正确（成绩与考试时间按 <code>Asia/Shanghai</code> 解析）</li><li>计划使用的端口未被占用（<code>netstat -ano | findstr :8080</code>）</li><li>已确认数据库方式，方式二/四已拿到可用账号</li><li>已取得发行包，并核对过 <code>BUILD-INFO.txt</code> 的版本与构建时间</li><li>已确认交付后的管理员初始口令由谁保管、在哪天修改</li></ul>
+<h2 class="chap pb" id="s3">发行包说明</h2>
+<h3 id="s3-1">包结构</h3>
+<p>解压后得到 <code>release/</code> 目录，结构如下：</p>
+<table class="codebox"><tr><td><pre>release/
+├── exam-server-0.1.0.jar     可执行 jar（前端已打进去，无独立前端目录）
+├── runtime/                  内置 Java 21 运行时（Windows x64，约 50 MB）
+├── bin/
+│   ├── start.bat             Windows 启动器（三选一菜单）
+│   ├── stop.bat              Windows 停止器（按端口找 Java 进程）
+│   ├── install-postgres.bat  方式三：自动安装并初始化 PostgreSQL
+│   ├── verify.bat            Windows 完整性校验
+│   ├── run.sh                Linux / macOS 启动器
+│   ├── stop.sh               Linux / macOS 停止器
+│   └── verify.sh             Linux / macOS 完整性校验
+├── data/                     运行后生成：exam.mv.db（内置库数据）
+├── logs/                     后台模式生成：app.log、app.port
+├── BUILD-INFO.txt            版本 / 构建时间 / 平台 / 源码指纹
+├── SHA256SUMS.txt            逐文件 SHA256 清单（222 项）
+├── README.txt                快速上手
+└── 安装与操作说明.md          安装与常见问题</pre></td></tr></table>
+<h3 id="s3-2">完整性校验</h3>
+<p>压缩包在拷贝、上传、杀毒软件扫描过程中可能损坏，尤其 <code>runtime/</code> 里有上千个文件。<strong>首次启动前必须校验</strong>：</p>
+<table class="codebox"><tr><td><pre>双击 bin\verify.bat                       Windows
+bash bin/verify.sh                        Linux / macOS</pre></td></tr></table>
+<p>脚本按 <code>SHA256SUMS.txt</code> 逐个比对，输出 <code>校验通过：222 个文件全部一致</code> 才算完整。</p>
+<p>出现 <code>缺失</code> 或 <code>损坏</code> 时不要启动，重新解压或重新取包——半损坏的包会表现为「启动闪退」或「页面白屏」，很难现场定位。</p>
+<h3 id="s3-3">读 BUILD-INFO.txt</h3>
+<p>这个文件用来回答两个问题：这包是哪天打的、里面的文件是不是这套源码。</p>
+<table class="grid"><thead><tr><th style="width:20%">字段</th><th style="width:40%">含义</th><th style="width:40%">怎么用</th></tr></thead><tbody><tr><td>版本</td><td>0.1.0</td><td>与客户合同、交付记录核对</td></tr><tr><td>构建时间</td><td>精确到秒</td><td>判断是否拿到了最新包</td></tr><tr><td>目标平台</td><td>Windows x64</td><td>与目标机架构核对</td></tr><tr><td>运行时</td><td>Java 21.0.12.1</td><td>与开发环境一致的证据</td></tr><tr><td>Git</td><td>短哈希 + 提交标题</td><td>出问题时能定位到具体代码版本</td></tr><tr><td>包大小 / 文件数</td><td>88.3 MB / 224</td><td>解压后对得上说明没丢文件</td></tr><tr class="last"><td>源码指纹</td><td>关键文件 SHA256 前 16 位</td><td>与源码目录比对，确认未被替换</td></tr></tbody></table>
+<h3 id="s3-4">版本与体积参考</h3>
+<table class="grid"><thead><tr><th style="width:30%">项</th><th style="width:70%">值</th></tr></thead><tbody><tr><td>发行包 <code>release.zip</code></td><td>68.9 MB</td></tr><tr><td>解压后 <code>release/</code></td><td>88.3 MB（jar 37.7 MB + runtime 50.3 MB）</td></tr><tr><td>校验清单条目</td><td>222 个文件</td></tr><tr class="last"><td>数据库迁移脚本</td><td>V1 ~ V15，首次启动全部执行</td></tr></tbody></table>
+<h2 class="chap pb" id="s4">部署方式</h2>
+<h3 id="s4-1">先选方式</h3>
+<table class="grid"><thead><tr><th style="width:16%">场景</th><th style="width:20%">推荐方式</th><th style="width:22%">数据存放</th><th style="width:42%">稳定程度</th></tr></thead><tbody><tr><td>现场演示、功能验收、单机试用</td><td>方式一</td><td>内置 H2 文件</td><td>够用，不建议长期生产</td></tr><tr><td>客户已有 PostgreSQL</td><td>方式二（Windows）/ 方式四（Linux）</td><td>客户数据库</td><td>生产推荐</td></tr><tr><td>全新服务器、没装数据库</td><td>方式三（Windows 自动装）</td><td>本机 PostgreSQL</td><td>生产可用</td></tr><tr class="last"><td>客户要求跑在 Linux</td><td>方式四</td><td>PostgreSQL</td><td>生产推荐</td></tr></tbody></table>
+<p>一句话原则：<strong>只要不是纯演示，就别用内置库</strong>。内置库是单文件、单进程，备份靠停服拷贝，并发与容量都受限。</p>
+<h3 id="s4-2">方式一 · Windows 单机 + 内置库</h3>
+<p>适用于演示、验收、一台电脑跑通的场景。</p>
+<ol><li>解压 <code>release.zip</code> 到 <code>D:\exam-sys</code>（路径不要有空格）</li><li>双击 <code>bin\start.bat</code>，菜单选 <code>1</code></li><li>等待窗口出现 <code>Started ExamApplication</code> 与 <code>Tomcat started on port 8080</code></li><li>浏览器打开 <code>http://localhost:8080</code></li></ol>
+<p>数据落在 <code>data\exam.mv.db</code>。首次启动会自动建表并写入演示数据。</p>
+<p>需要注意：</p>
+<ul><li>该模式下 <code>spring.profiles.active=dev</code>，<code>/h2-console</code> 控制台是开着的，<strong>不要长期对业务网段开放</strong></li><li>数据目录跟着启动目录：一定要用 <code>bin\start.bat</code> 启动（脚本会先 <code>cd</code> 到包根），不要在别处手敲 <code>java -jar</code></li><li>停止：<code>bin\stop.bat</code>，或在前台窗口按 <code>Ctrl+C</code></li></ul>
+<h3 id="s4-3">方式二 · Windows 连接已有 PostgreSQL</h3>
+<p>适用于客户已经有数据库、要求数据统一管理。</p>
+<ol><li>在数据库侧准备库与账号：<table class="codebox"><tr><td><pre>CREATE ROLE exam LOGIN PASSWORD &#x27;换成强口令&#x27;;
+CREATE DATABASE exam_sys OWNER exam ENCODING &#x27;UTF8&#x27;;</pre></td></tr></table></li><li>双击 <code>bin\start.bat</code>，菜单选 <code>2</code></li><li>依次填写主机、端口、库名、用户名、密码（回车取默认值）</li><li>看到 <code>Successfully applied 15 migration</code> 说明表结构已自动建好</li></ol>
+<p>表结构由 Flyway 自动创建，<strong>空库即可</strong>，不需要手工执行建表脚本。</p>
+<p>连接参数实际是以命令行方式传给应用的，等价于：</p>
+<table class="codebox"><tr><td><pre>java -jar exam-server-0.1.0.jar --server.port=8080 --spring.profiles.active=pg ^
+  --DB_URL=jdbc:postgresql://10.0.0.21:5432/exam_sys --DB_USER=exam --DB_PASSWORD=******</pre></td></tr></table>
+<h3 id="s4-4">方式三 · Windows 自动安装 PostgreSQL</h3>
+<p>适用于服务器什么都没装，但要用真实数据库。</p>
+<ol><li>双击 <code>bin\start.bat</code>，菜单选 <code>3</code></li><li>脚本调用 <code>bin\install-postgres.bat</code>：探测是否已装 → 未装则用 winget / chocolatey 静默安装 → 启动服务 → 建库 <code>exam_sys</code> 与角色 <code>exam</code></li><li>建库阶段可能要求输入 postgres 超级用户口令；希望无人值守时，先执行 <code>set PGPASSWORD=你的口令</code> 再启动</li><li>随后自动以 pg 模式启动</li></ol>
+<p>需要联网（winget 源）。客户网络受限时改用「先手工装 PG，再走方式二」。</p>
+<h3 id="s4-5">方式四 · Linux 服务器</h3>
+<p>发行包内运行时是 Windows 版，Linux 上改用系统 JDK 21 + <code>run.sh</code>，生产建议托管为 systemd 服务。</p>
+<p>前置：安装 JDK 21 与 PostgreSQL 16。</p>
+<table class="codebox"><tr><td><pre># 1. 解压到 /opt
+sudo mkdir -p /opt/exam-sys &amp;&amp; sudo tar -xzf release.zip -C /tmp
+sudo cp -r /tmp/release/* /opt/exam-sys/
+sudo mkdir -p /opt/exam-sys/logs &amp;&amp; sudo chown -R examsys:examsys /opt/exam-sys
+
+# 2. 校验（Linux 上走 sha256sum）
+cd /opt/exam-sys &amp;&amp; bash bin/verify.sh
+
+# 3. 建库
+sudo -u postgres psql -c &quot;CREATE ROLE exam LOGIN PASSWORD &#x27;换成强口令&#x27;;&quot;
+sudo -u postgres psql -c &quot;CREATE DATABASE exam_sys OWNER exam ENCODING &#x27;UTF8&#x27;;&quot;</pre></td></tr></table>
+<p>数据库口令不要写在命令行里（会出现在 <code>ps</code> 输出中），用环境变量文件：</p>
+<table class="codebox"><tr><td><pre># /opt/exam-sys/app.env    权限 600，属主 examsys
+DB_URL=jdbc:postgresql://127.0.0.1:5432/exam_sys
+DB_USER=exam
+DB_PASSWORD=换成强口令
+JAVA_OPTS=-Xms256m -Xmx1024m -Duser.timezone=Asia/Shanghai</pre></td></tr></table>
+<p>systemd 单元：</p>
+<table class="codebox"><tr><td><pre># /etc/systemd/system/exam-sys.service
+[Unit]
+Description=Exam System
+After=network.target postgresql.service
+Wants=postgresql.service
+
+[Service]
+Type=simple
+User=examsys
+WorkingDirectory=/opt/exam-sys
+EnvironmentFile=/opt/exam-sys/app.env
+ExecStart=/usr/bin/java ${JAVA_OPTS} -jar /opt/exam-sys/exam-server-0.1.0.jar \
+          --server.port=8080 --spring.profiles.active=pg
+SuccessExitStatus=143
+Restart=on-failure
+RestartSec=5
+LimitNOFILE=65535
+
+[Install]
+WantedBy=multi-user.target</pre></td></tr></table>
+<p>启用与查看：</p>
+<table class="codebox"><tr><td><pre>sudo systemctl daemon-reload
+sudo systemctl enable --now exam-sys
+sudo systemctl status exam-sys
+sudo journalctl -u exam-sys -f          # 跟踪日志</pre></td></tr></table>
+<p><code>SuccessExitStatus=143</code> 是必须的：Spring Boot 收到 SIGTERM 时优雅停机并返回 143，不加这条 systemd 会把正常停止记成失败。</p>
+<h3 id="s4-6">修改端口</h3>
+<table class="grid"><thead><tr><th style="width:30%">方式</th><th style="width:70%">命令</th></tr></thead><tbody><tr><td>Windows 启动器</td><td><code>bin\start.bat --port=9090</code></td></tr><tr><td>Linux 启动脚本</td><td><code>./bin/run.sh --port=9090</code></td></tr><tr><td>systemd</td><td>改 <code>ExecStart</code> 里的 <code>--server.port</code>，<code>daemon-reload</code> 后重启</td></tr><tr class="last"><td>手工执行</td><td><code>java -jar exam-server-0.1.0.jar --server.port=9090</code></td></tr></tbody></table>
+<p>改完记得同步防火墙规则和反代配置。</p>
+<h2 class="chap pb" id="s5">首次启动与验收</h2>
+<h3 id="s5-1">启动成功的标志</h3>
+<p>日志里出现这两行即代表可以访问：</p>
+<table class="codebox"><tr><td><pre>Tomcat started on port 8080 (http) with context path &#x27;&#x27;
+Started ExamApplication in 12.345 seconds</pre></td></tr></table>
+<p>后台模式（<code>-d</code>）看不到控制台，改看 <code>logs\app.log</code>，或直接请求健康检查：</p>
+<table class="codebox"><tr><td><pre>curl http://127.0.0.1:8080/actuator/health     → {&quot;status&quot;:&quot;UP&quot;}</pre></td></tr></table>
+<h3 id="s5-2">数据库初始化说明</h3>
+<p>首次启动由 Flyway 自动执行 <code>V1 ~ V15</code> 共 15 个迁移脚本，创建全部表结构，随后初始化器写入：</p>
+<ul><li>管理员账号与角色权限菜单</li><li>演示大纲、题库、试题、试卷、考试计划</li><li>学员账号（绑定示例学员）</li></ul>
+<p>重复启动不会重复插入（初始化器有存在性判断），因此<strong>重启是安全的</strong>。</p>
+<h3 id="s5-3">验收清单</h3>
+<p>装完按这张表走一遍，全部符合才算交付完成。</p>
+<table class="grid"><thead><tr><th style="width:20%">序号</th><th style="width:40%">检查项</th><th style="width:40%">预期结果</th></tr></thead><tbody><tr><td>1</td><td><code>bin\verify.bat</code></td><td>校验通过，文件数一致</td></tr><tr><td>2</td><td>启动日志</td><td>出现 <code>Started ExamApplication</code></td></tr><tr><td>3</td><td><code>/actuator/health</code></td><td>返回 <code>{&quot;status&quot;:&quot;UP&quot;}</code></td></tr><tr><td>4</td><td>打开首页</td><td>显示登录页，能加载图形验证码</td></tr><tr><td>5</td><td>管理员登录</td><td>进入首页，左侧菜单完整（学员中心 / 考试中心 / 系统管理）</td></tr><tr><td>6</td><td>学员登录</td><td>只看到「学员中心」四项菜单</td></tr><tr><td>7</td><td>首页指标</td><td>学员数、题库量等有数值，不是全 0 或空白</td></tr><tr><td>8</td><td>新建一次考试</td><td>能建计划并开考、交卷、阅卷、出分（可用演示数据）</td></tr><tr><td>9</td><td>重启应用</td><td>数据仍在（证明数据目录/数据库配置正确）</td></tr><tr class="last"><td>10</td><td>停止脚本</td><td><code>bin\stop.bat</code> 能停掉，端口释放</td></tr></tbody></table>
+<div class="fig"><img src="C:/Users/lxq/Desktop/exam-sys/docs/manual-assets/fig_login_fixed.png"/><p class="figcap">图 5-1　登录页：能正常加载图形验证码，说明前端与后端已连通</p></div>
+<div class="fig"><img src="C:/Users/lxq/Desktop/exam-sys/docs/manual-assets/fig_dashboard.png"/><p class="figcap">图 5-2　首页概览：指标为真实统计值，不是空白或全 0</p></div>
+<h3 id="s5-4">交付前必做</h3>
+<ol><li><strong>改掉默认口令</strong>：管理员、学员账号的初始口令相同，交付当天必须改。入口：<code>系统管理 → 用户管理 → 重置密码</code></li><li><strong>确认 profile</strong>：生产必须是 <code>pg</code>，用 <code>dev</code> 会让 <code>/h2-console</code> 匿名可访问</li><li><strong>清理演示数据</strong>（可选）：演示数据方便验收，正式投用前如需空库，方式一停服删 <code>data\</code> 后重启；方式二清空库后重启，会重新初始化</li><li><strong>记录交付信息</strong>：版本号、构建时间、Git 哈希、数据库地址、端口、管理员口令保管人</li></ol>
+<h2 class="chap pb" id="s6">日常运维</h2>
+<h3 id="s6-1">启停与日志</h3>
+<table class="grid"><thead><tr><th style="width:20%">操作</th><th style="width:40%">Windows</th><th style="width:40%">Linux</th></tr></thead><tbody><tr><td>前台启动</td><td><code>bin\start.bat</code></td><td><code>./bin/run.sh</code></td></tr><tr><td>后台启动</td><td><code>bin\start.bat -d</code></td><td><code>./bin/run.sh -d</code> 或 <code>systemctl start exam-sys</code></td></tr><tr><td>停止</td><td><code>bin\stop.bat</code></td><td><code>./bin/stop.sh</code> 或 <code>systemctl stop exam-sys</code></td></tr><tr><td>日志位置</td><td><code>logs\app.log</code></td><td><code>logs/app.log</code> 或 <code>journalctl -u exam-sys</code></td></tr><tr class="last"><td>端口记录</td><td><code>logs\app.port</code></td><td><code>logs/app.port</code></td></tr></tbody></table>
+<p><code>bin\stop.bat</code> 不是按进程名乱杀：它从 <code>logs\app.port</code> 取端口，用 <code>netstat</code> 找到监听该端口的 PID，再确认进程是 java / javaw 才结束，避免误杀服务器上其它 Java 程序。</p>
+<h3 id="s6-2">备份与恢复</h3>
+<p><strong>方式一（内置库）</strong>：库就是 <code>data\exam.mv.db</code> 一个文件，但<strong>必须停服后再拷</strong>，运行中拷贝可能拿到不一致的页。</p>
+<table class="codebox"><tr><td><pre>bin\stop.bat
+xcopy /E /I /Y data  D:\backup\exam-data-20261027
+bin\start.bat -d</pre></td></tr></table>
+<p>恢复：停服 → 用备份文件覆盖 <code>data\exam.mv.db</code> → 启动。</p>
+<p><strong>方式二/三/四（PostgreSQL）</strong>：</p>
+<table class="codebox"><tr><td><pre># 备份（业务低峰执行）
+pg_dump -h 127.0.0.1 -U exam -Fc -d exam_sys -f /backup/exam_sys_20261027.dump
+
+# 恢复
+pg_restore -h 127.0.0.1 -U exam -d exam_sys --clean --if-exists /backup/exam_sys_20261027.dump</pre></td></tr></table>
+<p>建议：备份保留最近 7 天；每次升级前先备一份并记下版本号；恢复演练至少做一次，不要等出事才第一次用。</p>
+<h3 id="s6-3">升级与回滚</h3>
+<p>程序升级（数据库不动）：</p>
+<ol><li>停服</li><li>用新包覆盖 <code>exam-server-*.jar</code>、<code>bin/</code>、<code>runtime/</code>，并保留 <code>data/</code>、<code>logs/</code></li><li>启服，确认 Flyway 只执行新增迁移（日志出现 <code>Migrating schema ... to version V16</code>）</li><li>按验收清单抽查登录与一条业务链路</li></ol>
+<p>回滚：把旧 jar 覆盖回去再启动。<strong>注意数据库不会自动回退</strong>——若新版本已执行过新迁移，回滚前应先用备份恢复数据库，否则旧程序可能因表结构不认识而报错。</p>
+<h3 id="s6-4">迁移到另一台机器</h3>
+<table class="grid"><thead><tr><th style="width:30%">方式</th><th style="width:70%">做法</th></tr></thead><tbody><tr><td>内置库</td><td>停服 → 整体拷贝整个 <code>release/</code> 目录（含 <code>data/</code>）→ 目标机启动</td></tr><tr class="last"><td>PostgreSQL</td><td>目标机装新包 → 按方式二/四连到同一个库，或 <code>pg_dump</code> + <code>pg_restore</code> 搬到新库</td></tr></tbody></table>
+<h3 id="s6-5">健康检查与监控</h3>
+<table class="grid"><thead><tr><th style="width:34%">端点</th><th style="width:32%">是否需要登录</th><th style="width:34%">用途</th></tr></thead><tbody><tr><td><code>/actuator/health</code></td><td>否</td><td>存活探针，返回 <code>{&quot;status&quot;:&quot;UP&quot;}</code></td></tr><tr><td><code>/actuator/info</code></td><td>是</td><td>构建信息</td></tr><tr><td><code>/actuator/metrics</code></td><td>是</td><td>各项指标</td></tr><tr class="last"><td><code>/actuator/prometheus</code></td><td>是</td><td>Prometheus 抓取格式</td></tr></tbody></table>
+<p>只有 <code>health</code> 是匿名的，其余需要登录令牌。接到监控系统时，如果抓取端不方便带令牌，建议在内网由 Nginx 侧单独放行或改为服务端探活。</p>
+<h2 class="chap pb" id="s7">安全与加固</h2>
+<h3 id="s7-1">必做项</h3>
+<table class="grid"><thead><tr><th style="width:20%">项</th><th style="width:40%">做法</th><th style="width:40%">不做的后果</th></tr></thead><tbody><tr><td>改默认口令</td><td>交付当天改掉管理员与学员初始口令</td><td>初始口令是公开的，等于没有密码</td></tr><tr><td>用 pg profile</td><td>生产严禁 <code>--spring.profiles.active=dev</code></td><td>H2 控制台 <code>/h2-console</code> 可被匿名访问，等于数据库裸奔</td></tr><tr><td>数据库账号最小权限</td><td>专用账号 <code>exam</code>，只授权到 <code>exam_sys</code></td><td>一旦口令泄露波及整个实例</td></tr><tr><td>口令不进命令行</td><td>用 <code>app.env</code> / 环境变量，不写 <code>--DB_PASSWORD=</code></td><td><code>ps</code>、日志、systemd 记录里都能看到</td></tr><tr><td>限制管理端来源</td><td>8080 只对使用者网段；或反代后只监听 127.0.0.1</td><td>后台暴露在公网</td></tr><tr class="last"><td>关闭调试级日志</td><td><code>--logging.level.com.exam=info</code></td><td>生产日志量暴增，且可能打印敏感数据</td></tr></tbody></table>
+<h3 id="s7-2">Nginx 反向代理</h3>
+<p>前端是 Hash 路由（<code>#/...</code>），不需要为 SPA 配置 rewrite，直接转发即可。</p>
+<table class="codebox"><tr><td><pre>server {
+    listen 80;
+    server_name exam.example.com;
+    client_max_body_size 20m;
+
+    location / {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_set_header Host              $host;
+        proxy_set_header X-Real-IP         $remote_addr;
+        proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}</pre></td></tr></table>
+<p>HTTPS 在外层终止即可，应用本身不需要配证书。启用后把应用端口改为只监听本机：</p>
+<table class="codebox"><tr><td><pre>java -jar exam-server-0.1.0.jar --server.address=127.0.0.1 --server.port=8080 ...</pre></td></tr></table>
+<h3 id="s7-3">已知限制</h3>
+<p>这些是架构层面的约束，部署方案要绕开它们，而不是试图调参解决。</p>
+<table class="grid"><thead><tr><th style="width:34%">限制</th><th style="width:32%">影响</th><th style="width:34%">应对</th></tr></thead><tbody><tr><td>登录令牌存在进程内 Map</td><td>多实例部署时令牌不共享，重启后所有人需重新登录</td><td>单实例部署；确需多节点先改造成 Redis 存储</td></tr><tr><td>内置 H2 为单进程单文件</td><td>不能多实例挂同一份数据</td><td>生产改 PostgreSQL</td></tr><tr><td>CORS 仅放行 localhost</td><td>前后端分域名部署会被浏览器拦截</td><td>用同源反代（推荐），或改 <code>SecurityConfig</code> 白名单</td></tr><tr><td>会话无状态、CSRF 关闭</td><td>依赖 Token 校验，不依赖 Cookie</td><td>不要把令牌放进 Cookie，避免被 CSRF 利用</td></tr><tr class="last"><td>管理端未做请求频率限制</td><td>存在暴力破解登录的窗口</td><td>反代层加 <code>limit_req</code>，或前置 WAF</td></tr></tbody></table>
+<h2 class="chap pb" id="s8">故障排查</h2>
+<p>按现象查，先看日志再改配置。</p>
+<table class="grid"><thead><tr><th style="width:34%">现象</th><th style="width:32%">可能原因</th><th style="width:34%">处理</th></tr></thead><tbody><tr><td>双击 start.bat 窗口一闪而过</td><td>路径含空格/中文，或 jar 缺失</td><td>在 cmd 里 <code>cd</code> 到目录手工运行 <code>start.bat</code> 看报错</td></tr><tr><td>提示「未找到可用的 Java」</td><td><code>runtime/</code> 解压不完整</td><td>跑 <code>bin\verify.bat</code>，重新解压完整包</td></tr><tr><td><code>Port 8080 was already in use</code></td><td>端口被占用</td><td><code>bin\stop.bat</code> 或换端口 <code>--port=9090</code></td></tr><tr><td>浏览器打不开，日志无 <code>Started</code></td><td>启动失败（数据库连不上、迁移报错）</td><td>看日志最后 50 行，通常是连接串或口令问题</td></tr><tr><td>页面 404 / 白屏</td><td>jar 未含前端静态资源</td><td>用官方发行包；自建包需确认 <code>BOOT-INF/classes/static/index.html</code> 存在</td></tr><tr><td>登录后左侧菜单为空</td><td>角色权限未初始化</td><td>确认库是空库首次启动；或删库重来让初始化器重建</td></tr><tr><td>方式二报 <code>Connection refused</code></td><td>数据库未启动 / 端口错 / 只监听 localhost</td><td>用 <code>psql</code> 先手工连通，再看 <code>pg_hba.conf</code></td></tr><tr><td>报 <code>Flyway validate failed</code></td><td>库里有旧版本表结构或被手工改过</td><td>清空该库首次启动；或找开发确认迁移基线</td></tr><tr><td>时间差 8 小时</td><td>服务器时区不是东八区</td><td>启动加 <code>-Duser.timezone=Asia/Shanghai</code>，或改系统时区</td></tr><tr><td>交卷后学员看不到分数</td><td>成绩未发布（设计如此）</td><td>管理员在「考试计划」里打开「发布成绩」</td></tr><tr><td>停止脚本报「未发现进程」</td><td>端口改了但 <code>logs\app.port</code> 未更新</td><td><code>bin\stop.bat 9090</code> 显式指定端口</td></tr><tr class="last"><td>内存溢出 <code>OutOfMemoryError</code></td><td>堆太小或并发过高</td><td>加 <code>-Xmx2048m</code>，并排查是否有大报表查询</td></tr></tbody></table>
+<h2 class="chap pb" id="s9">附录</h2>
+<h3 id="s9-1">启动参数速查</h3>
+<table class="grid"><thead><tr><th style="width:34%">参数</th><th style="width:32%">说明</th><th style="width:34%">示例</th></tr></thead><tbody><tr><td><code>--server.port</code></td><td>HTTP 端口</td><td><code>--server.port=9090</code></td></tr><tr><td><code>--server.address</code></td><td>监听地址</td><td><code>--server.address=127.0.0.1</code></td></tr><tr><td><code>--spring.profiles.active</code></td><td>运行模式</td><td><code>dev</code> 内置库 / <code>pg</code> PostgreSQL</td></tr><tr><td><code>--DB_URL</code></td><td>JDBC 连接串</td><td><code>jdbc:postgresql://127.0.0.1:5432/exam_sys</code></td></tr><tr><td><code>--DB_USER</code> / <code>--DB_PASSWORD</code></td><td>数据库账号口令</td><td>建议改用环境变量</td></tr><tr><td><code>--logging.file.name</code></td><td>日志文件路径</td><td><code>logs/app.log</code></td></tr><tr><td><code>--logging.level.com.exam</code></td><td>业务日志级别</td><td><code>info</code>（生产）</td></tr><tr class="last"><td><code>-Xmx</code></td><td>最大堆</td><td><code>-Xmx1024m</code></td></tr></tbody></table>
+<h3 id="s9-2">环境变量速查</h3>
+<table class="grid"><thead><tr><th style="width:34%">变量</th><th style="width:32%">默认值</th><th style="width:34%">说明</th></tr></thead><tbody><tr><td><code>DB_URL</code></td><td><code>jdbc:postgresql://127.0.0.1:5432/exam_sys</code></td><td>仅 pg profile 生效</td></tr><tr><td><code>DB_USER</code></td><td><code>exam</code></td><td>同上</td></tr><tr class="last"><td><code>DB_PASSWORD</code></td><td><code>exam</code></td><td>同上，生产必须覆盖</td></tr></tbody></table>
+<h3 id="s9-3">目录与文件清单</h3>
+<table class="grid"><thead><tr><th style="width:34%">路径</th><th style="width:32%">是否随包</th><th style="width:34%">说明</th></tr></thead><tbody><tr><td><code>exam-server-0.1.0.jar</code></td><td>是</td><td>应用本体，含前端</td></tr><tr><td><code>runtime/</code></td><td>是</td><td>Java 运行时，勿删</td></tr><tr><td><code>bin/</code></td><td>是</td><td>启停与校验脚本</td></tr><tr><td><code>data/</code></td><td>否</td><td>运行后生成，内置库数据，需备份</td></tr><tr><td><code>logs/</code></td><td>否</td><td>运行后生成，日志与端口记录</td></tr><tr><td><code>BUILD-INFO.txt</code></td><td>是</td><td>构建信息与指纹</td></tr><tr class="last"><td><code>SHA256SUMS.txt</code></td><td>是</td><td>校验清单</td></tr></tbody></table>
+<h3 id="s9-4">常用命令速查</h3>
+<table class="codebox"><tr><td><pre>bin\start.bat                  前台启动
+bin\start.bat -d               后台启动
+bin\start.bat --port=9090      换端口启动
+bin\stop.bat                   停止
+bin\verify.bat                 完整性校验
+curl http://127.0.0.1:8080/actuator/health     健康检查</pre></td></tr></table>
+<p>Linux 对应 <code>./bin/run.sh</code>、<code>./bin/run.sh -d</code>、<code>./bin/stop.sh</code>、<code>bash bin/verify.sh</code>，</p>
+<p>或统一用 <code>systemctl start|stop|status exam-sys</code>。</p>
+<h3 id="s9-5">交付签署</h3>
+<table class="grid"><thead><tr><th style="width:30%">项</th><th style="width:70%">内容</th></tr></thead><tbody><tr><td>交付版本</td><td>0.1.0（构建时间见 BUILD-INFO.txt）</td></tr><tr><td>部署方式</td><td>方式一 / 二 / 三 / 四（勾选）</td></tr><tr><td>部署主机</td><td></td></tr><tr><td>访问地址</td><td></td></tr><tr><td>数据库</td><td></td></tr><tr><td>管理员口令保管人</td><td></td></tr><tr><td>验收结论</td><td>通过 / 有条件通过（问题：　　　　）</td></tr><tr><td>实施人 / 日期</td><td></td></tr><tr class="last"><td>客户确认 / 日期</td><td></td></tr></tbody></table></section></body></html>

@@ -1,0 +1,40 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF', padding: 0, position: 'relative', overflow: 'hidden' }}>
+  <Text style={{ position: 'absolute', left: 80, top: 76, fontSize: 34, fontWeight: 'bold', color: '#17191E' }}>交付：一个压缩包，解压就能跑</Text>
+  <Text style={{ position: 'absolute', left: 80, top: 132, fontSize: 14, color: '#8C919C', lineHeight: 1.8 }}>
+    包内自带 Java 21 运行时，目标机不用装 JDK；附 SHA256 清单，启动前可先校验。
+  </Text>
+
+  <Box style={{ position: 'absolute', left: 80, top: 196, width: 660, background: '#F6F6F7', border: '1px solid #DCDEE3', padding: 24, flexDirection: 'column' }}>
+    <Text style={{ fontSize: 13, color: '#17191E', fontFamily: 'Consolas', lineHeight: 1.95 }}>release/</Text>
+    <Text style={{ fontSize: 13, color: '#4A4F5A', fontFamily: 'Consolas', lineHeight: 1.95 }}>├─ exam-server-0.1.0.jar　　程序，已内嵌前端</Text>
+    <Text style={{ fontSize: 13, color: '#4A4F5A', fontFamily: 'Consolas', lineHeight: 1.95 }}>├─ runtime/bin/java.exe　　Java 21 运行时，约 50 MB</Text>
+    <Text style={{ fontSize: 13, color: '#4A4F5A', fontFamily: 'Consolas', lineHeight: 1.95 }}>├─ bin/start.bat　　　　　启动器，菜单式选安装方式</Text>
+    <Text style={{ fontSize: 13, color: '#4A4F5A', fontFamily: 'Consolas', lineHeight: 1.95 }}>├─ bin/verify.bat　　　　 SHA256 完整性校验</Text>
+    <Text style={{ fontSize: 13, color: '#4A4F5A', fontFamily: 'Consolas', lineHeight: 1.95 }}>└─ SHA256SUMS.txt　　　　219 个文件的校验清单</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 780, top: 196, width: 420, flexDirection: 'column' }}>
+    <Box style={{ height: 1, background: '#DCDEE3' }} />
+    <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#17191E', marginTop: 14 }}>三种安装方式</Text>
+    <Text style={{ fontSize: 12, color: '#8C919C', lineHeight: 1.75, marginTop: 6 }}>内置演示库、连接已有 PostgreSQL、自动安装 PostgreSQL，启动器里选一个。</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 780, top: 330, width: 420, flexDirection: 'column' }}>
+    <Box style={{ height: 1, background: '#DCDEE3' }} />
+    <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#17191E', marginTop: 14 }}>整体搬迁</Text>
+    <Text style={{ fontSize: 12, color: '#8C919C', lineHeight: 1.75, marginTop: 6 }}>目录可以直接拷贝到另一台机器；删掉 data/ 就是一套干净的演示数据。</Text>
+  </Box>
+
+  <Box style={{ position: 'absolute', left: 780, top: 464, width: 420, flexDirection: 'column' }}>
+    <Box style={{ height: 1, background: '#DCDEE3' }} />
+    <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#17191E', marginTop: 14 }}>Linux 与 macOS</Text>
+    <Text style={{ fontSize: 12, color: '#8C919C', lineHeight: 1.75, marginTop: 6 }}>改用 bin/run.sh；包内运行时是 Windows 版时会回落到系统 JDK 17 及以上。</Text>
+  </Box>
+
+  <Text style={{ position: 'absolute', left: 80, top: 470, width: 660, fontSize: 12, color: '#8C919C', lineHeight: 1.8 }}>
+    启动后访问 http://localhost:8080。默认账号 admin / Mima3700%，正式投用前请先改密码。
+  </Text>
+
+  <Text style={{ position: 'absolute', left: 80, top: 668, fontSize: 12, color: '#B0B4BD' }}>交付</Text>
+  <Text style={{ position: 'absolute', right: 80, top: 668, fontSize: 12, color: '#B0B4BD' }}>10 / 12</Text>
+</Slide>

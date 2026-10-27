@@ -63,7 +63,7 @@
         <div class="q-body">
           <el-radio-group v-if="current.type === 'SC' || current.type === 'TF'" v-model="answer" class="opts">
             <el-radio v-for="o in options" :key="o.key" :value="o.key" class="opt">
-              <b>{{ o.key }}</b>. {{ o.text }}
+              <b>{{ o.key === 'T' ? '√' : o.key === 'F' ? '×' : o.key }}</b>. {{ o.text }}
             </el-radio>
           </el-radio-group>
 
@@ -157,7 +157,14 @@ const result = ref<PracticeResult | null>(null)
 const wrong = ref<WrongItem[]>([])
 
 const current = computed(() => questions.value[index.value])
-const options = computed(() => current.value?.options ?? [])
+const options = computed(() => {
+  if (!current.value) return []
+  // 判断题后端不存选项（options=[]），前端按口径合成 T/F 两个可选项
+  if (current.value.type === 'TF' && !(current.value.options ?? []).length) {
+    return [{ key: 'T', text: '正确' }, { key: 'F', text: '错误' }]
+  }
+  return current.value.options ?? []
+})
 const answered = computed(() =>
   current.value?.type === 'MC' ? multi.value.length > 0 : answer.value.trim().length > 0
 )
